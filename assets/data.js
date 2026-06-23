@@ -38,11 +38,43 @@ window.IM = {
     {n:"Flower Power",sub:"Facial-recognition gallery",url:"https://flowerpower.fotop.com",img:"01d2c822-d85d-45ad-b037-c2b02b68ecc2/Flower+Power"},
     {n:"Onda Pura",sub:"Facial-recognition gallery",url:"https://ondapura.fotop.com",img:"0dac0cba-d902-4ca6-9357-a998b488a8cd/Onda-Pura.jpg"},
     {n:"Surfing Life",sub:"Facial-recognition gallery",url:"https://surfinglifeclub.fotop.com",img:"621208a7-d585-4a04-bb95-08833f3c7ccf/Surfing-Life.jpg"},
-    {n:"Matosinhos Beach",sub:"Matosinhos, Portugal",url:"https://imagemedia.fotop.com/fotos/eventos/index/evento/254671",img:"c5283ad5-5d2d-456a-a712-f01682f84318/Matosinhos-Beach.jpg"}
+    {n:"Matosinhos Beach",sub:"Facial-recognition gallery",url:"https://imagemedia.fotop.com/fotos/eventos/index/evento/254671",img:"c5283ad5-5d2d-456a-a712-f01682f84318/Matosinhos-Beach.jpg"},
+    {n:"Surf Aventura",sub:"Facial-recognition gallery",url:"https://imagemedia.fotop.com/fotos/eventos/index/evento/271991",img:"680d8ee6-911e-4874-8841-cb139cea96a5/Prancheta+1.png"},
+    {n:"Kiber",sub:"Facial-recognition gallery",url:"https://imagemedia.fotop.com/fotos/eventos/index/evento/286833",img:"8c582688-c456-4345-84c1-282446419da9/kiber.png"},
+    {n:"Sitges Surf Club",sub:"Facial-recognition gallery",url:"https://imagemedia.fotop.com/fotos/eventos/index/evento/286855",img:"900ec39f-3f40-4651-b0fd-cf1ba5e770d2/stiges.png"},
+    {n:"Escola Catalana de Surf",sub:"Facial-recognition gallery",url:"https://imagemedia.fotop.com/fotos/eventos/index/evento/289453",img:"986aa527-e02c-4e7c-8107-30d643bea00b/catalana.png"},
+    {n:"Shaka Surf Castell Defels",sub:"Facial-recognition gallery",url:"https://imagemedia.fotop.com/fotos/eventos/index/evento/292487",img:"659f80ac-e7cc-464f-a661-d92247994b89/WhatsApp+Image+2026-06-08+at+11.39.05.jpeg"}
   ],
 
-  /* ---- STOCK GALLERY — placeholder photographers (concept only) ---- */
+  /* ---- STOCK GALLERY ---- */
   PHOTOGRAPHERS: [
+    {id:"eduardo-castro",name:"Eduardo Castro",initials:"EC",tag:"Cycling & Triathlon",
+     based:"Portugal / Spain",since:"2019",
+     portrait:"assets/images/Eduardo-Castro.jpg",
+     bio:"Eduardo chases speed on two wheels and in open water. From gran fondos winding through mountains to triathlon transitions at dawn, he finds the decisive frame inside the effort — raw, precise and full of movement.",
+     photos:[
+       "assets/images/Cycling/EDU19DSV00448.jpg",
+       "assets/images/Cycling/educastrosports_dia03_1063_182533_859316_181917.jpg",
+       "assets/images/triathon/AY1Q0368.jpg",
+       "assets/images/Cycling/educastrosport_dia01_0755_182533_859316_181917.jpg",
+       "assets/images/Cycling/educastrosports_dia02_7312_182533_859316_181917.jpg",
+       "assets/images/triathon/AY1Q1854.jpg"
+     ]},
+    {id:"anderson-yamada",name:"Anderson Yamada",initials:"AY",tag:"Sports Photography",
+     portrait:"assets/images/Anderson-Yamada.jpg",
+     bio:"",photos:[]},
+    {id:"luis-moreira",name:"Luis Moreira",initials:"LM",tag:"Sports Photography",
+     portrait:"assets/images/Luis-Moreira.jpg",
+     bio:"",photos:[]},
+    {id:"michael-alexandre",name:"Michael Alexandre",initials:"MA",tag:"Sports Photography",
+     portrait:"assets/images/Michael-Alexandre.jpg",
+     bio:"",photos:[]},
+    {id:"paulo-nomade",name:"Paulo Nomade",initials:"PN",tag:"Sports Photography",
+     portrait:"assets/images/Paulo-Nomade.jpg",
+     bio:"",photos:[]},
+    {id:"sergio-mendes",name:"Sergio Mendes",initials:"SM",tag:"Sports Photography",
+     portrait:"assets/images/Sergio-Mendes.jpg",
+     bio:"",photos:[]},
     {id:"marco-rivera",name:"Marco Rivera",initials:"MR",tag:"Trail & Endurance",
      based:"Porto, Portugal",since:"2019",
      bio:"Marco lives where the trail gets steepest. He chases endurance athletes across mountain ridges and forest singletrack, hunting the one frame that holds an entire race — the breath, the grit, the summit light.",

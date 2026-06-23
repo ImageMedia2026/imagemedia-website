@@ -8,7 +8,7 @@ var D=window.IM||{};
 var CDN=D.CDN||"";
 var $=function(s,c){return (c||document).querySelector(s);};
 var $$=function(s,c){return Array.prototype.slice.call((c||document).querySelectorAll(s));};
-var img=function(p,w){return CDN+p+"?format="+(w||1200)+"w";};
+var img=function(p,w){if(p&&p.indexOf("assets/")===0)return p;return CDN+p+"?format="+(w||1200)+"w";};
 var page=document.body.getAttribute("data-page")||"home";
 
 /* ---------------- NAV + FOOTER ---------------- */
@@ -223,8 +223,9 @@ function renderSurf(){
 
 /* ---------------- STOCK GALLERY ---------------- */
 function avatar(p){
-  return '<span class="ava">'+(p.portrait?
-    '<img src="'+p.portrait+'" alt="'+p.name+'">':
+  var src=p.portrait||(p.photos&&p.photos.length?img(p.photos[0],600):null);
+  return '<span class="ava">'+(src?
+    '<img src="'+src+'" alt="'+p.name+'">':
     '<span class="mono">'+p.initials+'</span>')+'</span>';
 }
 function renderShooters(){
@@ -304,4 +305,116 @@ $$("form[data-contact]").forEach(function(f){
     window.location.href="mailto:contact@imagemedia.one?subject="+subject+"&body="+body;
   });
 });
+})();
+
+/* ===================================================================
+   IMAGE MEDIA — Premium micro-interactions
+   Custom cursor · scroll progress · film grain · magnetic buttons
+   =================================================================== */
+(function(){
+"use strict";
+
+/* ---- only on pointer (non-touch) devices ---- */
+var isFine=(window.matchMedia&&window.matchMedia("(pointer:fine)").matches);
+var prefersReduced=(window.matchMedia&&window.matchMedia("(prefers-reduced-motion:reduce)").matches);
+
+/* ---- scroll progress bar ---- */
+var prog=document.createElement("div");
+prog.id="im-progress";
+document.body.appendChild(prog);
+function updateProgress(){
+  var s=document.documentElement,h=s.scrollHeight-s.clientHeight;
+  prog.style.width=(h>0?(s.scrollTop/h*100):0)+"%";
+}
+window.addEventListener("scroll",updateProgress,{passive:true});
+
+/* ---- custom cursor ---- */
+if(isFine&&!prefersReduced){
+  var dot=document.createElement("div");dot.id="im-dot";document.body.appendChild(dot);
+  var ring=document.createElement("div");ring.id="im-ring";document.body.appendChild(ring);
+
+  var mx=window.innerWidth/2,my=window.innerHeight/2;
+  var rx=mx,ry=my;
+  var hoverable="a,button,.btn,label,input,select,textarea,[role=button],.shooter,.pf-shot,.ev-thumb";
+
+  document.addEventListener("mousemove",function(e){
+    mx=e.clientX;my=e.clientY;
+    dot.style.left=mx+"px";dot.style.top=my+"px";
+  });
+  document.addEventListener("mousedown",function(){document.body.classList.add("cursor-down");});
+  document.addEventListener("mouseup",function(){document.body.classList.remove("cursor-down");});
+  document.addEventListener("mouseover",function(e){
+    if(e.target.closest(hoverable))document.body.classList.add("cursor-hover");
+  });
+  document.addEventListener("mouseout",function(e){
+    if(e.target.closest(hoverable))document.body.classList.remove("cursor-hover");
+  });
+
+  /* lerp ring */
+  var raf;
+  function lerpRing(){
+    rx+=(mx-rx)*.14;
+    ry+=(my-ry)*.14;
+    ring.style.left=rx+"px";ring.style.top=ry+"px";
+    raf=requestAnimationFrame(lerpRing);
+  }
+  lerpRing();
+
+  /* hide when mouse leaves window */
+  document.addEventListener("mouseleave",function(){dot.style.opacity="0";ring.style.opacity="0";});
+  document.addEventListener("mouseenter",function(){dot.style.opacity="1";ring.style.opacity="1";});
+}
+
+/* ---- film grain (canvas, very subtle) ---- */
+if(!prefersReduced){
+  var grainDiv=document.createElement("div");grainDiv.id="im-grain";
+  var gc=document.createElement("canvas");gc.width=256;gc.height=256;
+  grainDiv.appendChild(gc);document.body.appendChild(grainDiv);
+  var ctx=gc.getContext("2d");
+  var frame=0;
+  function drawGrain(){
+    frame++;
+    if(frame%3===0){/* update every 3 frames ~20fps */
+      var id=ctx.createImageData(256,256);
+      var d=id.data;
+      for(var i=0;i<d.length;i+=4){
+        var v=Math.random()*255|0;
+        d[i]=v;d[i+1]=v;d[i+2]=v;d[i+3]=38;
+      }
+      ctx.putImageData(id,0,0);
+      gc.style.transform="translate("+(Math.random()*8-4|0)+"px,"+(Math.random()*8-4|0)+"px)";
+    }
+    requestAnimationFrame(drawGrain);
+  }
+  drawGrain();
+}
+
+/* ---- magnetic buttons ---- */
+if(isFine&&!prefersReduced){
+  document.querySelectorAll(".btn-primary").forEach(function(btn){
+    btn.addEventListener("mousemove",function(e){
+      var r=btn.getBoundingClientRect();
+      var dx=e.clientX-(r.left+r.width/2);
+      var dy=e.clientY-(r.top+r.height/2);
+      btn.style.transform="translateY(-2px) translate("+(dx*.12)+"px,"+(dy*.12)+"px)";
+      btn.style.boxShadow="0 8px 28px rgba(230,71,13,.35),0 2px 8px rgba(230,71,13,.2)";
+    });
+    btn.addEventListener("mouseleave",function(){
+      btn.style.transform="";btn.style.boxShadow="";
+    });
+  });
+}
+
+/* ---- stat number pop on count finish ---- */
+/* Observe counts and add a visual pop when the number lands */
+document.querySelectorAll("[data-target]").forEach(function(el){
+  var io=new IntersectionObserver(function(es){
+    if(!es[0].isIntersecting)return;
+    var dur=1400;
+    setTimeout(function(){el.classList.add("popped");setTimeout(function(){el.classList.remove("popped");},400);},dur);
+    io.unobserve(el);
+  },{threshold:.5});
+  io.observe(el);
+});
+
 })();

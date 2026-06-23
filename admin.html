@@ -1,0 +1,616 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width,initial-scale=1"/>
+<title>Image Media — Content Editor</title>
+<style>
+*{box-sizing:border-box;margin:0;padding:0}
+:root{--bg:#1a1a1e;--bg2:#242428;--bg3:#2e2e33;--ink:#f0eeea;--muted:#888;--accent:#e6470d;--line:#3a3a3f;--r:6px}
+body{background:var(--bg);color:var(--ink);font-family:'Inter',system-ui,sans-serif;font-size:15px;min-height:100vh}
+a{color:var(--accent)}
+
+/* ---- TOP BAR ---- */
+.topbar{
+  position:fixed;top:0;left:0;right:0;z-index:100;
+  background:rgba(26,26,30,.96);backdrop-filter:blur(12px);
+  border-bottom:1px solid var(--line);
+  display:flex;align-items:center;justify-content:space-between;
+  padding:12px 24px;gap:16px;
+}
+.topbar h1{font-size:.95rem;font-weight:700;letter-spacing:.04em;text-transform:uppercase}
+.topbar h1 em{color:var(--accent);font-style:normal}
+.top-actions{display:flex;gap:10px;align-items:center}
+.btn{display:inline-flex;align-items:center;gap:7px;padding:9px 18px;border-radius:var(--r);font-size:.82rem;font-weight:700;letter-spacing:.04em;text-transform:uppercase;cursor:pointer;border:0;transition:.2s}
+.btn-accent{background:var(--accent);color:#fff}
+.btn-accent:hover{background:#ff6a32}
+.btn-ghost{background:transparent;color:var(--ink);border:1px solid var(--line)}
+.btn-ghost:hover{border-color:var(--ink)}
+.badge{font-size:.7rem;padding:3px 8px;border-radius:100px;background:rgba(230,71,13,.18);color:var(--accent);font-weight:600;letter-spacing:.06em;text-transform:uppercase}
+
+/* ---- LAYOUT ---- */
+.layout{display:grid;grid-template-columns:220px 1fr;min-height:100vh;padding-top:57px}
+
+/* ---- SIDEBAR ---- */
+.sidebar{background:var(--bg2);border-right:1px solid var(--line);padding:20px 0;position:sticky;top:57px;height:calc(100vh - 57px);overflow-y:auto}
+.nav-section{padding:8px 16px 4px;font-size:.68rem;letter-spacing:.14em;text-transform:uppercase;color:var(--muted);font-weight:600}
+.nav-item{display:flex;align-items:center;gap:10px;padding:10px 20px;font-size:.85rem;cursor:pointer;color:var(--muted);transition:.15s;border-left:2px solid transparent}
+.nav-item:hover{color:var(--ink);background:var(--bg3)}
+.nav-item.active{color:var(--ink);border-color:var(--accent);background:var(--bg3)}
+.nav-item svg{flex:none;opacity:.6}
+.nav-item.active svg{opacity:1}
+
+/* ---- MAIN CONTENT ---- */
+.main{padding:32px 36px;max-width:900px}
+
+/* ---- PANELS ---- */
+.panel{display:none}
+.panel.active{display:block}
+.panel-title{font-size:1.3rem;font-weight:800;margin-bottom:6px}
+.panel-sub{color:var(--muted);font-size:.9rem;margin-bottom:28px}
+
+/* ---- CARDS ---- */
+.card{background:var(--bg2);border:1px solid var(--line);border-radius:var(--r);padding:22px 24px;margin-bottom:16px}
+.card-label{font-size:.72rem;letter-spacing:.12em;text-transform:uppercase;color:var(--muted);font-weight:600;margin-bottom:8px}
+.field-row{display:grid;grid-template-columns:1fr 1fr;gap:14px;margin-bottom:14px}
+.field{display:flex;flex-direction:column;gap:6px}
+.field label{font-size:.78rem;font-weight:600;color:var(--muted);letter-spacing:.06em;text-transform:uppercase}
+.field input,.field textarea,.field select{
+  background:var(--bg3);border:1px solid var(--line);border-radius:var(--r);
+  color:var(--ink);padding:10px 14px;font-size:.9rem;font-family:inherit;
+  transition:border-color .2s;width:100%
+}
+.field input:focus,.field textarea:focus,.field select:focus{outline:0;border-color:var(--accent)}
+.field textarea{resize:vertical;min-height:80px;line-height:1.5}
+
+/* ---- IMAGE PICKER ---- */
+.img-pick{
+  display:flex;align-items:center;gap:14px;
+  background:var(--bg3);border:1px solid var(--line);border-radius:var(--r);
+  padding:10px 14px;cursor:pointer;transition:border-color .2s
+}
+.img-pick:hover{border-color:var(--accent)}
+.img-preview{
+  width:52px;height:52px;border-radius:4px;
+  object-fit:cover;background:var(--line);flex:none
+}
+.img-pick-text{flex:1;min-width:0}
+.img-pick-name{font-size:.82rem;color:var(--ink);white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.img-pick-hint{font-size:.72rem;color:var(--muted);margin-top:2px}
+.img-pick-btn{font-size:.75rem;font-weight:700;letter-spacing:.06em;text-transform:uppercase;background:var(--bg);border:1px solid var(--line);color:var(--muted);padding:6px 12px;border-radius:4px;cursor:pointer;transition:.15s;white-space:nowrap}
+.img-pick-btn:hover{border-color:var(--ink);color:var(--ink)}
+input[type=file]{display:none}
+
+/* ---- PHOTOGRAPHER CARD ---- */
+.ph-card{background:var(--bg2);border:1px solid var(--line);border-radius:var(--r);padding:18px 20px;margin-bottom:12px;display:grid;grid-template-columns:52px 1fr;gap:14px;align-items:start}
+.ph-ava{width:52px;height:52px;border-radius:50%;object-fit:cover;background:var(--line);border:2px solid var(--line)}
+.ph-body{flex:1}
+.ph-name{font-weight:700;margin-bottom:2px}
+.ph-tag{font-size:.78rem;color:var(--accent)}
+.ph-actions{display:flex;gap:8px;margin-top:10px}
+.btn-xs{padding:5px 12px;font-size:.72rem}
+
+/* ---- EVENT CARD ---- */
+.ev-item{background:var(--bg2);border:1px solid var(--line);border-radius:var(--r);padding:14px 18px;margin-bottom:10px;display:grid;grid-template-columns:1fr auto;align-items:center;gap:12px}
+.ev-name-row{font-weight:600;font-size:.9rem;margin-bottom:3px}
+.ev-meta{font-size:.78rem;color:var(--muted)}
+.ev-status-dot{display:inline-block;width:7px;height:7px;border-radius:50%;margin-right:5px;vertical-align:middle}
+.dot-ready{background:#4caf50}
+.dot-upcoming{background:#ff9800}
+
+/* ---- MODAL ---- */
+.modal-backdrop{position:fixed;inset:0;background:rgba(0,0,0,.7);z-index:200;display:none;align-items:center;justify-content:center}
+.modal-backdrop.open{display:flex}
+.modal{background:var(--bg2);border:1px solid var(--line);border-radius:10px;width:min(560px,94vw);max-height:80vh;overflow-y:auto;padding:28px 30px}
+.modal h3{font-size:1.05rem;font-weight:700;margin-bottom:18px}
+.modal-actions{display:flex;justify-content:flex-end;gap:10px;margin-top:20px;padding-top:16px;border-top:1px solid var(--line)}
+
+/* ---- TOAST ---- */
+.toast{
+  position:fixed;bottom:24px;right:24px;
+  background:var(--accent);color:#fff;
+  padding:12px 22px;border-radius:var(--r);
+  font-size:.85rem;font-weight:600;
+  transform:translateY(80px);opacity:0;
+  transition:.3s cubic-bezier(.16,1,.3,1);z-index:300
+}
+.toast.show{transform:none;opacity:1}
+
+/* ---- SAVE INDICATOR ---- */
+.unsaved{color:var(--accent);font-size:.75rem;font-weight:600;letter-spacing:.06em;text-transform:uppercase}
+</style>
+</head>
+<body>
+
+<!-- TOP BAR -->
+<div class="topbar">
+  <h1>IMAGE<em>MEDIA</em> <span class="badge">Content Editor</span></h1>
+  <div class="top-actions">
+    <span class="unsaved" id="unsavedBadge" style="display:none">● Unsaved changes</span>
+    <button class="btn btn-ghost" onclick="exportData()">Export data.js</button>
+    <button class="btn btn-accent" onclick="showToast('Preview in browser: open events.html directly')">Preview site</button>
+  </div>
+</div>
+
+<!-- LAYOUT -->
+<div class="layout">
+
+  <!-- SIDEBAR -->
+  <nav class="sidebar">
+    <div class="nav-section">Pages</div>
+    <div class="nav-item active" onclick="show('hero')" id="nav-hero">
+      <svg width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><rect x="3" y="3" width="18" height="18" rx="2"/><path d="M3 9h18"/></svg>
+      Hero &amp; Main Text
+    </div>
+    <div class="nav-item" onclick="show('photographers')" id="nav-photographers">
+      <svg width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><circle cx="12" cy="8" r="4"/><path d="M4 20c0-4 3.6-7 8-7s8 3 8 7"/></svg>
+      Photographers
+    </div>
+    <div class="nav-item" onclick="show('events')" id="nav-events">
+      <svg width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><rect x="3" y="4" width="18" height="18" rx="2"/><path d="M16 2v4M8 2v4M3 10h18"/></svg>
+      Events
+    </div>
+    <div class="nav-section">Site</div>
+    <div class="nav-item" onclick="show('contact')" id="nav-contact">
+      <svg width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M22 16.92V19a2 2 0 01-2.18 2A19.79 19.79 0 013 5.18 2 2 0 015 3h2.09a2 2 0 012 1.72c.127.96.361 1.903.7 2.81a2 2 0 01-.45 2.11L8.09 10.91a16 16 0 006 6l1.27-1.27a2 2 0 012.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0122 17.92z"/></svg>
+      Contact &amp; Footer
+    </div>
+    <div class="nav-item" onclick="show('help')" id="nav-help">
+      <svg width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><path d="M9.09 9a3 3 0 015.83 1c0 2-3 3-3 3M12 17h.01"/></svg>
+      How to publish
+    </div>
+  </nav>
+
+  <!-- MAIN -->
+  <div class="main">
+
+    <!-- HERO PANEL -->
+    <div class="panel active" id="panel-hero">
+      <div class="panel-title">Hero &amp; Main Text</div>
+      <div class="panel-sub">Edit the big text on the homepage / events page hero.</div>
+
+      <div class="card">
+        <div class="card-label">Hero headline</div>
+        <div class="field-row">
+          <div class="field">
+            <label>Line 1</label>
+            <input type="text" id="hero-line1" value="Your moment" oninput="markUnsaved()"/>
+          </div>
+          <div class="field">
+            <label>Line 2 (orange)</label>
+            <input type="text" id="hero-line2" value="Frame by frame" oninput="markUnsaved()"/>
+          </div>
+        </div>
+        <div class="field">
+          <label>Subtitle text</label>
+          <textarea id="hero-sub" oninput="markUnsaved()">Scanned a QR code at your event? Your photos &amp; videos are ready. New here? Image Media is professional photography &amp; video for sport events across Europe.</textarea>
+        </div>
+      </div>
+
+      <div class="card">
+        <div class="card-label">Hero slideshow images (5 slides)</div>
+        <p style="font-size:.82rem;color:var(--muted);margin-bottom:14px">Click "Change" on any slide to pick a different image from your assets folder. Images must already be in <code>assets/images/</code>.</p>
+        <div id="slideList"></div>
+      </div>
+
+      <div class="card">
+        <div class="card-label">Find my photos — section</div>
+        <div class="field">
+          <label>Big heading</label>
+          <input type="text" id="gw-heading" value="Your photos are waiting for you" oninput="markUnsaved()"/>
+        </div>
+        <div class="field" style="margin-top:12px">
+          <label>Description</label>
+          <textarea id="gw-desc" oninput="markUnsaved()">Every athlete we photograph gets their own secure gallery — powered by Fotop with facial recognition. Find yourself in seconds, no account needed.</textarea>
+        </div>
+        <div class="field" style="margin-top:12px">
+          <label>CTA button text</label>
+          <input type="text" id="gw-cta" value="Find my photos &amp; videos" oninput="markUnsaved()"/>
+        </div>
+      </div>
+
+      <div class="card">
+        <div class="card-label">Mosaic images (5 tiles)</div>
+        <div id="mosaicList"></div>
+      </div>
+    </div>
+
+    <!-- PHOTOGRAPHERS PANEL -->
+    <div class="panel" id="panel-photographers">
+      <div class="panel-title">Photographers</div>
+      <div class="panel-sub">Edit the team shown on the Stock Gallery page.</div>
+      <div id="phList"></div>
+      <button class="btn btn-ghost" style="margin-top:8px" onclick="addPhotographer()">+ Add photographer</button>
+    </div>
+
+    <!-- EVENTS PANEL -->
+    <div class="panel" id="panel-events">
+      <div class="panel-title">Events</div>
+      <div class="panel-sub">Add, edit or remove events from the events page.</div>
+      <div id="evList"></div>
+      <button class="btn btn-ghost" style="margin-top:8px" onclick="addEvent()">+ Add event</button>
+    </div>
+
+    <!-- CONTACT PANEL -->
+    <div class="panel" id="panel-contact">
+      <div class="panel-title">Contact &amp; Footer</div>
+      <div class="panel-sub">These appear in the footer on every page.</div>
+      <div class="card">
+        <div class="field-row">
+          <div class="field"><label>Email</label><input type="text" id="ct-email" value="contact@imagemedia.one" oninput="markUnsaved()"/></div>
+          <div class="field"><label>Phone</label><input type="text" id="ct-phone" value="+34 600 68 06 30" oninput="markUnsaved()"/></div>
+        </div>
+        <div class="field" style="margin-top:12px"><label>Instagram URL</label><input type="text" id="ct-ig" value="https://www.instagram.com/IMAGEMEDIA.ONE" oninput="markUnsaved()"/></div>
+        <div class="field" style="margin-top:12px"><label>Fotop gallery URL</label><input type="text" id="ct-fotop" value="https://imagemedia.fotop.com" oninput="markUnsaved()"/></div>
+      </div>
+      <div class="card">
+        <div class="card-label">Footer tagline</div>
+        <div class="field"><textarea id="ct-tagline" oninput="markUnsaved()">A sports-event media partner. We capture every athlete, publish galleries the same day, and hand organisers content built for sponsors and socials.</textarea></div>
+      </div>
+    </div>
+
+    <!-- HELP PANEL -->
+    <div class="panel" id="panel-help">
+      <div class="panel-title">How to publish changes</div>
+      <div class="panel-sub">Everything here is local — nothing auto-saves to GitHub. Follow these steps:</div>
+      <div class="card">
+        <div class="card-label">Step 1 — Export</div>
+        <p style="font-size:.88rem;line-height:1.6">Click <strong>Export data.js</strong> in the top bar. A file called <code>data.js</code> is downloaded to your Downloads folder.</p>
+      </div>
+      <div class="card">
+        <div class="card-label">Step 2 — Replace the file</div>
+        <p style="font-size:.88rem;line-height:1.6">Move the downloaded <code>data.js</code> to <code>imagemedia-redesign/assets/data.js</code>, replacing the old one.</p>
+      </div>
+      <div class="card">
+        <div class="card-label">Step 3 — Push to GitHub</div>
+        <p style="font-size:.88rem;line-height:1.6">Open <strong>Win + R → cmd</strong>, paste this command and press Enter:</p>
+        <pre style="background:var(--bg);padding:12px 14px;border-radius:var(--r);font-size:.78rem;line-height:1.7;margin-top:10px;overflow-x:auto;border:1px solid var(--line)">cd /d "C:\Users\user\Documents\Claude\Projects\Website\imagemedia-redesign" &amp;&amp; git add assets/data.js &amp;&amp; git commit -m "Content update" &amp;&amp; git push origin main</pre>
+      </div>
+      <div class="card">
+        <div class="card-label">Changing page text or HTML</div>
+        <p style="font-size:.88rem;line-height:1.6">For things like page headlines that are in the HTML files (not data.js), ask Claude to edit the file — just say what you want changed and Claude will update and push it.</p>
+      </div>
+    </div>
+
+  </div><!-- /main -->
+</div><!-- /layout -->
+
+<!-- MODAL for editing photographer / event -->
+<div class="modal-backdrop" id="modalBackdrop" onclick="closeModal(event)">
+  <div class="modal" id="modal">
+    <h3 id="modalTitle">Edit</h3>
+    <div id="modalBody"></div>
+    <div class="modal-actions">
+      <button class="btn btn-ghost" onclick="closeModal()">Cancel</button>
+      <button class="btn btn-accent" id="modalSave">Save</button>
+    </div>
+  </div>
+</div>
+
+<!-- TOAST -->
+<div class="toast" id="toast"></div>
+
+<script>
+/* ================================================================
+   IMAGE MEDIA ADMIN — data.js editor
+   ================================================================ */
+
+/* ---- load data.js dynamically ---- */
+var D = window.IM || {};
+
+/* local working copies */
+var state = {
+  slides: [
+    "assets/images/Cycling/EDU19DSV00448.jpg",
+    "assets/images/triathon/AY1Q0368.jpg",
+    "assets/images/run/AY1Q0734.jpg",
+    "assets/images/trail/20221012IMG_6359.jpg",
+    "assets/images/surf/%40educastrosports-61.JPG"
+  ],
+  mosaic: [
+    "assets/images/Cycling/educastrosports_dia03_1063_182533_859316_181917.jpg",
+    "assets/images/triathon/AY1Q1854.jpg",
+    "assets/images/run/%40ofotografoluan_Corrida_33.jpg",
+    "assets/images/trail/0015.jpg",
+    "assets/images/surf/IMG_8609.jpg"
+  ],
+  photographers: [],
+  events: [],
+  unsaved: false
+};
+
+/* ---- try to load real data.js ---- */
+function tryLoadData(){
+  var s = document.createElement('script');
+  s.src = 'assets/data.js?' + Date.now();
+  s.onload = function(){
+    var d = window.IM || {};
+    if(d.PHOTOGRAPHERS) state.photographers = JSON.parse(JSON.stringify(d.PHOTOGRAPHERS));
+    if(d.EVENTS) state.events = JSON.parse(JSON.stringify(d.EVENTS));
+    renderAll();
+  };
+  s.onerror = function(){ renderAll(); };
+  document.head.appendChild(s);
+}
+
+/* ---- navigation ---- */
+function show(id){
+  document.querySelectorAll('.panel').forEach(function(p){p.classList.remove('active');});
+  document.querySelectorAll('.nav-item').forEach(function(n){n.classList.remove('active');});
+  document.getElementById('panel-' + id).classList.add('active');
+  document.getElementById('nav-' + id).classList.add('active');
+}
+
+/* ---- unsaved marker ---- */
+function markUnsaved(){
+  state.unsaved = true;
+  document.getElementById('unsavedBadge').style.display = '';
+}
+
+/* ---- toast ---- */
+function showToast(msg, dur){
+  var t = document.getElementById('toast');
+  t.textContent = msg;
+  t.classList.add('show');
+  setTimeout(function(){ t.classList.remove('show'); }, dur || 3000);
+}
+
+/* ================================================================
+   RENDER SECTIONS
+   ================================================================ */
+
+function renderAll(){
+  renderSlides();
+  renderMosaic();
+  renderPhotographers();
+  renderEvents();
+}
+
+/* ---- slides ---- */
+function renderSlides(){
+  var el = document.getElementById('slideList');
+  el.innerHTML = state.slides.map(function(src, i){
+    return '<div class="img-pick" style="margin-bottom:10px">' +
+      '<img class="img-preview" src="' + src + '" onerror="this.style.background=\'#444\'" />' +
+      '<div class="img-pick-text">' +
+        '<div class="img-pick-name">Slide ' + (i+1) + '</div>' +
+        '<div class="img-pick-hint">' + src.split('/').pop() + '</div>' +
+      '</div>' +
+      '<button class="img-pick-btn" onclick="pickImage(' + i + ',\'slide\')">Change</button>' +
+      '<input type="file" id="fp-slide-' + i + '" accept="image/*" onchange="previewFile(this,' + i + ',\'slide\')">' +
+    '</div>';
+  }).join('');
+}
+
+/* ---- mosaic ---- */
+function renderMosaic(){
+  var labels = ['Top-left','Centre tall','Top-right','Bottom-left','Bottom-right'];
+  var el = document.getElementById('mosaicList');
+  el.innerHTML = state.mosaic.map(function(src, i){
+    return '<div class="img-pick" style="margin-bottom:10px">' +
+      '<img class="img-preview" src="' + src + '" onerror="this.style.background=\'#444\'" style="border-radius:3px" />' +
+      '<div class="img-pick-text">' +
+        '<div class="img-pick-name">' + labels[i] + '</div>' +
+        '<div class="img-pick-hint">' + src.split('/').pop() + '</div>' +
+      '</div>' +
+      '<button class="img-pick-btn" onclick="pickImage(' + i + ',\'mosaic\')">Change</button>' +
+      '<input type="file" id="fp-mosaic-' + i + '" accept="image/*" onchange="previewFile(this,' + i + ',\'mosaic\')">' +
+    '</div>';
+  }).join('');
+}
+
+function pickImage(i, type){
+  document.getElementById('fp-' + type + '-' + i).click();
+}
+
+function previewFile(input, i, type){
+  if(!input.files || !input.files[0]) return;
+  var file = input.files[0];
+  var name = file.name;
+  /* Show path hint — user must also copy file to assets/images/ */
+  var path = 'assets/images/' + name;
+  if(type === 'slide') state.slides[i] = path;
+  else state.mosaic[i] = path;
+  renderSlides();
+  renderMosaic();
+  markUnsaved();
+  showToast('Remember to copy ' + name + ' into assets/images/ before pushing!', 4000);
+}
+
+/* ---- photographers ---- */
+function renderPhotographers(){
+  var el = document.getElementById('phList');
+  if(!state.photographers.length){
+    el.innerHTML = '<p style="color:var(--muted);font-size:.88rem">No photographers loaded yet. Make sure data.js is in the assets folder.</p>';
+    return;
+  }
+  el.innerHTML = state.photographers.map(function(p, i){
+    return '<div class="ph-card">' +
+      '<img class="ph-ava" src="' + (p.portrait || '') + '" onerror="this.style.background=\'#555\'" />' +
+      '<div class="ph-body">' +
+        '<div class="ph-name">' + p.name + '</div>' +
+        '<div class="ph-tag">' + p.tag + '</div>' +
+        '<div class="ph-actions">' +
+          '<button class="btn btn-ghost btn-xs" onclick="editPhotographer(' + i + ')">Edit</button>' +
+          '<button class="btn btn-ghost btn-xs" style="color:#e55;border-color:#e55" onclick="removePhotographer(' + i + ')">Remove</button>' +
+        '</div>' +
+      '</div>' +
+    '</div>';
+  }).join('');
+}
+
+function editPhotographer(i){
+  var p = state.photographers[i];
+  document.getElementById('modalTitle').textContent = 'Edit Photographer';
+  document.getElementById('modalBody').innerHTML =
+    '<div class="field" style="margin-bottom:12px"><label>Name</label><input id="m-name" value="' + esc(p.name) + '"/></div>' +
+    '<div class="field" style="margin-bottom:12px"><label>Specialty / Tag</label><input id="m-tag" value="' + esc(p.tag) + '"/></div>' +
+    '<div class="field" style="margin-bottom:12px"><label>Based in</label><input id="m-based" value="' + esc(p.based||'') + '"/></div>' +
+    '<div class="field" style="margin-bottom:12px"><label>With Image Media since</label><input id="m-since" value="' + esc(p.since||'') + '"/></div>' +
+    '<div class="field" style="margin-bottom:12px"><label>Portrait image path</label><input id="m-portrait" value="' + esc(p.portrait||'') + '"/></div>' +
+    '<div class="field"><label>Bio</label><textarea id="m-bio" style="min-height:100px">' + esc(p.bio||'') + '</textarea></div>';
+  document.getElementById('modalSave').onclick = function(){
+    state.photographers[i].name = v('m-name');
+    state.photographers[i].tag = v('m-tag');
+    state.photographers[i].based = v('m-based');
+    state.photographers[i].since = v('m-since');
+    state.photographers[i].portrait = v('m-portrait');
+    state.photographers[i].bio = v('m-bio');
+    renderPhotographers();
+    markUnsaved();
+    closeModal();
+    showToast('Photographer updated');
+  };
+  openModal();
+}
+
+function addPhotographer(){
+  var newP = {id:'new-'+Date.now(),name:'New Photographer',initials:'NP',tag:'Sports Photography',based:'',since:'2026',portrait:'',bio:'',photos:[]};
+  state.photographers.push(newP);
+  renderPhotographers();
+  editPhotographer(state.photographers.length - 1);
+}
+
+function removePhotographer(i){
+  if(!confirm('Remove ' + state.photographers[i].name + '?')) return;
+  state.photographers.splice(i, 1);
+  renderPhotographers();
+  markUnsaved();
+}
+
+/* ---- events ---- */
+function renderEvents(){
+  var el = document.getElementById('evList');
+  if(!state.events.length){
+    el.innerHTML = '<p style="color:var(--muted);font-size:.88rem">No events loaded yet. Make sure data.js is in the assets folder.</p>';
+    return;
+  }
+  el.innerHTML = state.events.map(function(e, i){
+    var dot = e.s === 'ready' ? 'dot-ready' : 'dot-upcoming';
+    return '<div class="ev-item">' +
+      '<div>' +
+        '<div class="ev-name-row"><span class="ev-status-dot ' + dot + '"></span>' + e.n + '</div>' +
+        '<div class="ev-meta">' + e.d + ' · ' + e.loc + ' · ' + e.c + '</div>' +
+      '</div>' +
+      '<div style="display:flex;gap:8px">' +
+        '<button class="btn btn-ghost btn-xs" onclick="editEvent(' + i + ')">Edit</button>' +
+        '<button class="btn btn-ghost btn-xs" style="color:#e55;border-color:#e55" onclick="removeEvent(' + i + ')">✕</button>' +
+      '</div>' +
+    '</div>';
+  }).join('');
+}
+
+function editEvent(i){
+  var e = state.events[i];
+  document.getElementById('modalTitle').textContent = 'Edit Event';
+  document.getElementById('modalBody').innerHTML =
+    '<div class="field-row">' +
+      '<div class="field"><label>Event name</label><input id="e-n" value="' + esc(e.n) + '"/></div>' +
+      '<div class="field"><label>Status</label>' +
+        '<select id="e-s"><option value="ready"' + (e.s==='ready'?' selected':'') + '>Photos ready</option>' +
+        '<option value="upcoming"' + (e.s==='upcoming'?' selected':'') + '>Upcoming</option></select>' +
+      '</div>' +
+    '</div>' +
+    '<div class="field-row" style="margin-top:12px">' +
+      '<div class="field"><label>Date display</label><input id="e-d" value="' + esc(e.d) + '"/></div>' +
+      '<div class="field"><label>Date ISO (yyyy-mm-dd)</label><input id="e-iso" value="' + esc(e.iso||'') + '"/></div>' +
+    '</div>' +
+    '<div class="field-row" style="margin-top:12px">' +
+      '<div class="field"><label>City</label><input id="e-loc" value="' + esc(e.loc) + '"/></div>' +
+      '<div class="field"><label>Sport category</label><input id="e-c" value="' + esc(e.c) + '"/></div>' +
+    '</div>' +
+    '<div class="field" style="margin-top:12px"><label>Fotop gallery URL</label><input id="e-url" value="' + esc(e.url||'') + '"/></div>' +
+    '<div class="field" style="margin-top:12px"><label>Thumbnail image path</label><input id="e-img" value="' + esc(e.img||'') + '"/></div>';
+  document.getElementById('modalSave').onclick = function(){
+    state.events[i].n   = v('e-n');
+    state.events[i].s   = v('e-s');
+    state.events[i].d   = v('e-d');
+    state.events[i].iso = v('e-iso');
+    state.events[i].loc = v('e-loc');
+    state.events[i].c   = v('e-c');
+    state.events[i].url = v('e-url');
+    state.events[i].img = v('e-img');
+    renderEvents();
+    markUnsaved();
+    closeModal();
+    showToast('Event updated');
+  };
+  openModal();
+}
+
+function addEvent(){
+  var e = {n:'New Event',s:'upcoming',d:'2026',iso:'2026-12-31',loc:'City',c:'Running',url:'https://imagemedia.fotop.com',img:''};
+  state.events.unshift(e);
+  renderEvents();
+  editEvent(0);
+}
+
+function removeEvent(i){
+  if(!confirm('Remove ' + state.events[i].n + '?')) return;
+  state.events.splice(i, 1);
+  renderEvents();
+  markUnsaved();
+}
+
+/* ================================================================
+   MODAL helpers
+   ================================================================ */
+function openModal(){ document.getElementById('modalBackdrop').classList.add('open'); }
+function closeModal(e){
+  if(e && e.target !== document.getElementById('modalBackdrop')) return;
+  document.getElementById('modalBackdrop').classList.remove('open');
+}
+
+/* ================================================================
+   EXPORT data.js
+   ================================================================ */
+function exportData(){
+  /* merge current form values into output */
+  var out = 'window.IM = window.IM || {};\n\n';
+
+  /* CDN */
+  out += 'window.IM.CDN = "";\n\n';
+
+  /* FOTOP */
+  var fotop = document.getElementById('ct-fotop') ? document.getElementById('ct-fotop').value : 'https://imagemedia.fotop.com';
+  out += 'window.IM.FOTOP = "' + fotop + '";\n\n';
+
+  /* SPORTS marquee — keep from original if available, else default */
+  var sports = (window.IM && window.IM.SPORTS) ? window.IM.SPORTS : ['Running','Trail','Cycling','Triathlon','OCR','Surf','Martial Arts','Football','Swimming','CrossFit'];
+  out += 'window.IM.SPORTS = ' + JSON.stringify(sports) + ';\n\n';
+
+  /* STRIP_A / STRIP_B */
+  if(window.IM && window.IM.STRIP_A) out += 'window.IM.STRIP_A = ' + JSON.stringify(window.IM.STRIP_A) + ';\n';
+  if(window.IM && window.IM.STRIP_B) out += 'window.IM.STRIP_B = ' + JSON.stringify(window.IM.STRIP_B) + ';\n';
+  out += '\n';
+
+  /* SURF */
+  if(window.IM && window.IM.SURF) out += 'window.IM.SURF = ' + JSON.stringify(window.IM.SURF, null, 2) + ';\n\n';
+
+  /* EVENTS */
+  out += 'window.IM.EVENTS = ' + JSON.stringify(state.events, null, 2) + ';\n\n';
+
+  /* PHOTOGRAPHERS */
+  out += 'window.IM.PHOTOGRAPHERS = ' + JSON.stringify(state.photographers, null, 2) + ';\n';
+
+  var blob = new Blob([out], {type:'text/javascript'});
+  var a = document.createElement('a');
+  a.href = URL.createObjectURL(blob);
+  a.download = 'data.js';
+  a.click();
+  state.unsaved = false;
+  document.getElementById('unsavedBadge').style.display = 'none';
+  showToast('data.js downloaded — replace assets/data.js and push to GitHub', 5000);
+}
+
+/* ================================================================
+   UTILS
+   ================================================================ */
+function esc(s){ return String(s||'').replace(/&/g,'&amp;').replace(/"/g,'&quot;').replace(/</g,'&lt;'); }
+function v(id){ var el=document.getElementById(id); return el ? el.value : ''; }
+
+/* ---- init ---- */
+tryLoadData();
+</script>
+</body>
+</html>

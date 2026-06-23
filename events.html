@@ -3,8 +3,8 @@
 <head>
 <meta charset="UTF-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
-<title>Event Photos — Find &amp; Buy Your Photos — IMAGE MEDIA</title>
-<meta name="description" content="Find your photos from any sports event covered by Image Media. Search by event, sport or city, then buy your images securely through Fotop with facial recognition." />
+<title>Event Photos — Find Your Race Photos — IMAGE MEDIA</title>
+<meta name="description" content="Scanned a QR code at your event? Find and buy your photos here. Image Media is professional sports photography and video — events, surf schools, academy and stock gallery." />
 <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Crect width='100' height='100' fill='%230c0c0e'/%3E%3Crect x='14' y='14' width='72' height='72' fill='none' stroke='%23e6470d' stroke-width='9'/%3E%3C/svg%3E" />
 <link rel="preconnect" href="https://fonts.googleapis.com" />
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
@@ -15,94 +15,177 @@
 
 <nav class="nav" id="siteNav"></nav>
 
-<!-- ===================== PAGE HERO ===================== -->
-<header class="phero">
-  <div class="phero-bg" style="background-image:url('https://images.squarespace-cdn.com/content/v1/68d118d75e6bb15424781300/e58f3214-e7a8-44d1-8d1f-78659770cf48/12_%40paulo.nomade_CNM_Lousada-8215.jpg?format=2500w')"></div>
-  <div class="phero-inner">
+<!-- ===================== HERO ===================== -->
+<header class="hero" id="hero">
+  <div class="hero-slides">
+    <div class="hero-slide" style="background-image:url('assets/images/Cycling/EDU19DSV00448.jpg')"></div>
+    <div class="hero-slide" style="background-image:url('assets/images/triathon/AY1Q0368.jpg')"></div>
+    <div class="hero-slide" style="background-image:url('assets/images/run/AY1Q0734.jpg')"></div>
+    <div class="hero-slide" style="background-image:url('assets/images/trail/20221012IMG_6359.jpg')"></div>
+    <div class="hero-slide" style="background-image:url('assets/images/surf/%40educastrosports-61.JPG')"></div>
+  </div>
+  <div class="hero-inner">
     <div class="container">
-      <span class="eyebrow">Event Photos · For athletes</span>
-      <h1 class="display">Your event photos<br>are <span class="accent-txt">ready</span></h1>
-      <p>Find the event you took part in, open your gallery, and relive every instant. Photos are organised by our partner Fotop — with facial recognition to take you straight to your best moments.</p>
-      <div class="phero-actions">
-        <a href="#events" class="btn btn-primary">Browse events <span class="arw">&rarr;</span></a>
-        <a href="https://imagemedia.fotop.com" target="_blank" rel="noopener" class="btn btn-ghost">Open the photo store</a>
-      </div>
+      <span class="eyebrow">Sports Event Media · Europe</span>
+      <h1 class="hero-title display">
+        <span class="line"><span>Your moment</span></span>
+        <span class="line"><span class="accent-txt">Frame by frame</span></span>
+      </h1>
+      <p class="hero-sub">Scanned a QR code at your event? Your photos &amp; videos are ready. New here? Image Media is professional photography &amp; video for sport events across Europe.</p>
     </div>
   </div>
+  <div class="scrollcue"><span class="bar"></span> Find your gallery below</div>
 </header>
 
-<!-- ===================== EVENTS EXPLORER ===================== -->
-<section class="section" id="events">
-  <div class="container">
-    <div class="section-head reveal">
-      <span class="eyebrow">Find your event</span>
-      <h2 class="display">Every event we have covered</h2>
-      <p>Search by event name, city or sport, and filter to what you need. Each card links straight to its gallery.</p>
-    </div>
-    <div class="ev-controls reveal">
-      <div class="ev-search">
-        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke-width="2"><circle cx="11" cy="11" r="7"/><path d="m21 21-4.3-4.3"/></svg>
-        <input type="text" id="evSearch" placeholder="Search by event, city or sport…" />
-      </div>
-      <div class="chip-row" id="evStatus">
-        <span class="lbl">Status</span>
-        <button class="chip active" data-v="all">All</button>
-        <button class="chip" data-v="ready">Photos ready</button>
-        <button class="chip" data-v="upcoming">Upcoming</button>
-      </div>
-      <div class="chip-row" id="evCats">
-        <span class="lbl">Sport</span>
-        <button class="chip active" data-v="all">All sports</button>
-        <button class="chip" data-v="Running">Running</button>
-        <button class="chip" data-v="Trail">Trail</button>
-        <button class="chip" data-v="Cycling">Cycling</button>
-        <button class="chip" data-v="Triathlon">Triathlon</button>
-        <button class="chip" data-v="OCR">OCR</button>
-        <button class="chip" data-v="Functional">Functional</button>
-      </div>
-      <div class="ev-count" id="evCount"></div>
-    </div>
-    <div class="card-grid" id="evGrid"></div>
-  </div>
-</section>
+<div class="marquee" aria-hidden="true"><div class="marquee-track" id="marquee"></div></div>
 
-<div class="pstrip" data-strip="a" aria-hidden="true"><div class="pstrip-track"></div></div>
+<!-- ===================== FIND YOUR PHOTOS ===================== -->
+<section class="section gateway-section" id="find-photos">
+  <div class="container gateway-wrap">
 
-<!-- ===================== HOW TO FIND ===================== -->
-<section class="section" style="background:var(--bg-2)">
-  <div class="container">
-    <div class="feature">
-      <div class="feature-media reveal">
-        <span class="frame-corner"></span>
-        <img src="https://images.squarespace-cdn.com/content/v1/68d118d75e6bb15424781300/91427b47-2f62-4580-a68e-67e5d546e93f/%40paulo.nomade-32+2.JPG?format=1500w" alt="Marathon runner" />
+    <div class="gateway-text">
+      <span class="eyebrow reveal">Scanned a QR code at your event?</span>
+      <h2 class="display reveal" style="transition-delay:.05s">Your photos are<br><span class="accent-txt">waiting for you</span></h2>
+      <p class="gateway-lead reveal" style="transition-delay:.1s">Every athlete we photograph gets their own secure gallery — powered by Fotop with facial recognition. Find yourself in seconds, no account needed.</p>
+      <div class="reveal" style="transition-delay:.15s">
+        <a href="https://imagemedia.fotop.com" target="_blank" rel="noopener" class="btn btn-primary btn-gateway">Find my photos &amp; videos <span class="arw">&rarr;</span></a>
       </div>
-      <div class="reveal">
-        <span class="eyebrow">How it works</span>
-        <h3 class="display">Find yourself in seconds</h3>
-        <p>No scrolling through thousands of photos. Our galleries use facial recognition, so each athlete is taken straight to their own images — fast, safe and private.</p>
-        <ul class="mini-list">
-          <li>Pick your event from the list above.</li>
-          <li>You are redirected to your secure gallery on Fotop.</li>
-          <li>Search with facial recognition to locate your photos.</li>
-          <li>Choose your favourites, purchase, and download your memories.</li>
-        </ul>
-        <div style="margin-top:26px">
-          <a href="https://imagemedia.fotop.com" target="_blank" rel="noopener" class="btn btn-primary">Go to the photo store <span class="arw">&rarr;</span></a>
+      <div class="markets reveal" style="transition-delay:.2s">
+        <span class="markets-label">We cover</span>
+        <div class="market-flags">
+          <span class="flag-pill">🇵🇹 Portugal</span>
+          <span class="flag-pill">🇪🇸 Spain</span>
+          <span class="flag-pill">🇫🇷 France</span>
+          <span class="flag-pill">🇮🇹 Italy</span>
+          <span class="flag-pill">🇮🇪 Ireland</span>
+          <span class="flag-pill">🇬🇧 UK</span>
         </div>
       </div>
     </div>
+
+    <div class="gateway-mosaic reveal" style="transition-delay:.12s">
+      <div class="mosaic">
+        <div class="m-a" style="background-image:url('assets/images/Cycling/educastrosports_dia03_1063_182533_859316_181917.jpg')"></div>
+        <div class="m-b" style="background-image:url('assets/images/triathon/AY1Q1854.jpg')"></div>
+        <div class="m-c" style="background-image:url('assets/images/run/%40ofotografoluan_Corrida_33.jpg')"></div>
+        <div class="m-d" style="background-image:url('assets/images/trail/0015.jpg')"></div>
+        <div class="m-e" style="background-image:url('assets/images/surf/IMG_8609.jpg')"></div>
+      </div>
+      <div class="mosaic-frame"></div>
+      <div class="mosaic-badge">
+        <span class="badge-num">6</span>
+        <span class="badge-txt">countries<br>covered</span>
+      </div>
+    </div>
+
   </div>
 </section>
 
-<!-- ===================== CTA BAND ===================== -->
-<section class="cta-band">
-  <div class="cta-bg" style="background-image:url('https://images.squarespace-cdn.com/content/v1/68d118d75e6bb15424781300/5c6940df-7700-4bf9-8085-363c50f1ed8b/imagemedia_background.jpg?format=2000w')"></div>
-  <div class="container reveal">
-    <h2 class="display">Took part in a surf session?</h2>
-    <p>If your photos are from a surf school rather than an event, your gallery lives in our dedicated surf space.</p>
-    <a href="surf.html" class="btn btn-primary">Go to Surf School Photos <span class="arw">&rarr;</span></a>
+<!-- ===================== HOW TO GET YOUR PHOTOS ===================== -->
+<section class="section" style="border-top:1px solid var(--line)">
+  <div class="container">
+    <div class="section-head reveal">
+      <span class="eyebrow">How it works</span>
+      <h2 class="display">Get your photos in <span class="accent-txt">four steps</span></h2>
+      <p>From the QR code in your hand to the photos on your phone — here is exactly how it works.</p>
+    </div>
+    <div class="steps">
+      <div class="step reveal">
+        <span class="step-line"></span><div class="step-no">01</div>
+        <h3>Find your event</h3>
+        <p>Search the finder above and select the event you took part in.</p>
+      </div>
+      <div class="step reveal" style="transition-delay:.1s">
+        <span class="step-line"></span><div class="step-no">02</div>
+        <h3>Open your gallery</h3>
+        <p>You are taken to your secure gallery on our partner platform, Fotop.</p>
+      </div>
+      <div class="step reveal" style="transition-delay:.2s">
+        <span class="step-line"></span><div class="step-no">03</div>
+        <h3>Search by face</h3>
+        <p>Facial recognition instantly finds every photo you appear in — fast and private.</p>
+      </div>
+      <div class="step reveal" style="transition-delay:.3s">
+        <div class="step-no">04</div>
+        <h3>Choose &amp; buy</h3>
+        <p>Pick your favourites, purchase securely, and download your memories.</p>
+      </div>
+    </div>
+    <div style="text-align:center;margin-top:46px" class="reveal">
+      <a href="https://imagemedia.fotop.com" target="_blank" rel="noopener" class="btn btn-primary">Open the photo store <span class="arw">&rarr;</span></a>
+    </div>
   </div>
 </section>
+
+<!-- ===================== OTHER SPACES ===================== -->
+<section class="section" id="spaces" style="background:var(--bg-2);border-top:1px solid var(--line)">
+  <div class="container">
+    <div class="section-head reveal">
+      <span class="eyebrow">More from Image Media</span>
+      <h2 class="display">More than <span class="accent-txt">events</span></h2>
+      <p>Beyond event coverage, four more spaces — each with its own home, for surfers, organisers, aspiring photographers and photo buyers.</p>
+    </div>
+    <div class="portals">
+      <div class="row-2">
+        <a class="portal lg reveal" href="surf.html">
+          <div class="portal-bg" style="background-image:url('assets/images/surf/%40educastrosports-61.JPG')"></div>
+          <div class="portal-in">
+            <div class="portal-pri"><b>01</b> Surfers &amp; surf schools</div>
+            <h3>Surf School Photos</h3>
+            <p>Choose your surf school and find your best wave with facial recognition.</p>
+            <span class="portal-go">Browse surf schools <span class="arw">&rarr;</span></span>
+          </div>
+        </a>
+        <a class="portal lg reveal" href="organizers.html" style="transition-delay:.08s">
+          <div class="portal-bg" style="background-image:url('assets/images/Cycling/educastrosport_dia01_0755_182533_859316_181917.jpg')"></div>
+          <div class="portal-in">
+            <div class="portal-pri"><b>02</b> Event organisers</div>
+            <h3>Organizers</h3>
+            <p>A full media team for your event — at zero cost. See how we work.</p>
+            <span class="portal-go">See how we work <span class="arw">&rarr;</span></span>
+          </div>
+        </a>
+      </div>
+      <div class="row-2">
+        <a class="portal reveal" href="academy.html">
+          <div class="portal-bg" style="background-image:url('assets/images/Cycling/%40wideshotsluis_imagemedia-063.jpg')"></div>
+          <div class="portal-in">
+            <div class="portal-pri"><b>03</b> Aspiring photographers</div>
+            <h3>Photo Academy</h3>
+            <p>Learn the craft — then earn from it through our agency.</p>
+            <span class="portal-go">Discover the Academy <span class="arw">&rarr;</span></span>
+          </div>
+        </a>
+        <a class="portal reveal" href="stock.html" style="transition-delay:.08s">
+          <div class="portal-bg" style="background-image:url('assets/images/triathon/AY1Q1854.jpg')"></div>
+          <div class="portal-in">
+            <div class="portal-pri"><b>04</b> Photo buyers &amp; fans</div>
+            <h3>Stock Gallery</h3>
+            <p>Selected photographers. Curated sport imagery to license.</p>
+            <span class="portal-go">Meet the photographers <span class="arw">&rarr;</span></span>
+          </div>
+        </a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ===================== BRAND STATEMENT ===================== -->
+<section class="section tight">
+  <div class="container">
+    <div class="section-head center reveal" style="margin-bottom:34px">
+      <span class="eyebrow">Who we are</span>
+      <h2 class="display">Turning fleeting moments into memories that <span class="accent-txt">inspire and endure</span></h2>
+      <p>Image Media is a team of professional sports photographers based in Europe. We capture the spirit and energy of sports events — and every detail we keep reflects not only what happened, but how it felt.</p>
+    </div>
+    <div style="text-align:center" class="reveal">
+      <a href="organizers.html" class="btn btn-primary">Partner with us <span class="arw">&rarr;</span></a>
+    </div>
+  </div>
+</section>
+
+<!-- ===================== AMBIENT PORTFOLIO STRIP ===================== -->
+<div class="pstrip" data-strip="a" aria-hidden="true"><div class="pstrip-track"></div></div>
 
 <footer class="footer" id="siteFoot"></footer>
 
