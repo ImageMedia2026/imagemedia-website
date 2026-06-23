@@ -1,0 +1,192 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>IMAGE MEDIA — Find Your Event Photos · Sports Photography & Video</title>
+<meta name="description" content="Scanned a QR code at your event? Find and buy your photos here. Image Media is professional sports photography and video — events, surf schools, academy and stock gallery." />
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Crect width='100' height='100' fill='%230c0c0e'/%3E%3Crect x='14' y='14' width='72' height='72' fill='none' stroke='%23e6470d' stroke-width='9'/%3E%3C/svg%3E" />
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Anton&family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
+<link rel="stylesheet" href="assets/style.css" />
+</head>
+<body data-page="home">
+
+<nav class="nav" id="siteNav"></nav>
+
+<!-- ===================== HERO ===================== -->
+<header class="hero" id="hero">
+  <div class="hero-slides">
+    <div class="hero-slide" style="background-image:url('https://images.squarespace-cdn.com/content/v1/68d118d75e6bb15424781300/e545c006-1bf2-440c-9a3f-821f72217807/IMG_3996.JPG?format=2500w')"></div>
+    <div class="hero-slide" style="background-image:url('https://images.squarespace-cdn.com/content/v1/68d118d75e6bb15424781300/93b41c73-1bc1-4bf4-80b1-af2313011a65/%40paulo.nomade-Caminha_-22.jpg?format=2500w')"></div>
+    <div class="hero-slide" style="background-image:url('https://images.squarespace-cdn.com/content/v1/68d118d75e6bb15424781300/b6bcbe9e-60f8-434c-afdd-7c5d894a8dd1/WB24UTM-1499.jpg?format=2500w')"></div>
+    <div class="hero-slide" style="background-image:url('https://images.squarespace-cdn.com/content/v1/68d118d75e6bb15424781300/84e215c4-7800-464a-9ff6-c7949282e0f7/paulonomade.jpg?format=2500w')"></div>
+    <div class="hero-slide" style="background-image:url('https://images.squarespace-cdn.com/content/v1/68d118d75e6bb15424781300/4d091cc0-0447-4e63-b127-55bad54a9747/Raulrdg_01-1570_181917.jpg?format=2500w')"></div>
+  </div>
+  <div class="hero-inner">
+    <div class="container">
+      <span class="eyebrow">Sports Event Media · Europe</span>
+      <h1 class="hero-title display">
+        <span class="line"><span>Your moment</span></span>
+        <span class="line"><span class="accent-txt">Frame by frame</span></span>
+      </h1>
+      <p class="hero-sub">Just scanned a QR code at your event? Your photos are ready — find your event right below. New here? Image Media is professional photography &amp; video for sport.</p>
+      <div class="hero-actions">
+        <a href="#events" class="btn btn-primary">Find your event photos <span class="arw">&darr;</span></a>
+        <a href="organizers.html" class="btn btn-ghost">I organise events</a>
+      </div>
+    </div>
+  </div>
+  <div class="scrollcue"><span class="bar"></span> Your photos below</div>
+</header>
+
+<div class="marquee" aria-hidden="true"><div class="marquee-track" id="marquee"></div></div>
+
+<!-- ===================== EVENT PHOTO FINDER (priority — QR landing) ===================== -->
+<section class="section" id="events">
+  <div class="container">
+    <div class="section-head reveal">
+      <span class="eyebrow">Event Photos · Scan → Find → Buy</span>
+      <h2 class="display">Your event photos are <span class="accent-txt">ready</span></h2>
+      <p>Find the event you took part in and open your gallery. Photos are organised by our partner Fotop — with facial recognition to take you straight to your best moments.</p>
+    </div>
+    <div class="ev-controls reveal">
+      <div class="ev-search">
+        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke-width="2"><circle cx="11" cy="11" r="7"/><path d="m21 21-4.3-4.3"/></svg>
+        <input type="text" id="evSearch" placeholder="Search by event, city or sport…" />
+      </div>
+      <div class="chip-row" id="evStatus">
+        <span class="lbl">Status</span>
+        <button class="chip active" data-v="all">All</button>
+        <button class="chip" data-v="ready">Photos ready</button>
+        <button class="chip" data-v="upcoming">Upcoming</button>
+      </div>
+      <div class="chip-row" id="evCats">
+        <span class="lbl">Sport</span>
+        <button class="chip active" data-v="all">All sports</button>
+        <button class="chip" data-v="Running">Running</button>
+        <button class="chip" data-v="Trail">Trail</button>
+        <button class="chip" data-v="Cycling">Cycling</button>
+        <button class="chip" data-v="Triathlon">Triathlon</button>
+        <button class="chip" data-v="OCR">OCR</button>
+        <button class="chip" data-v="Functional">Functional</button>
+      </div>
+      <div class="ev-count" id="evCount"></div>
+    </div>
+    <div class="card-grid" id="evGrid"></div>
+  </div>
+</section>
+
+<!-- ===================== HOW TO GET YOUR PHOTOS ===================== -->
+<section class="section" style="border-top:1px solid var(--line)">
+  <div class="container">
+    <div class="section-head reveal">
+      <span class="eyebrow">How it works</span>
+      <h2 class="display">Get your photos in <span class="accent-txt">four steps</span></h2>
+      <p>From the QR code in your hand to the photos on your phone — here is exactly how it works.</p>
+    </div>
+    <div class="steps">
+      <div class="step reveal">
+        <span class="step-line"></span><div class="step-no">01</div>
+        <h3>Find your event</h3>
+        <p>Search the finder above and select the event you took part in.</p>
+      </div>
+      <div class="step reveal" style="transition-delay:.1s">
+        <span class="step-line"></span><div class="step-no">02</div>
+        <h3>Open your gallery</h3>
+        <p>You are taken to your secure gallery on our partner platform, Fotop.</p>
+      </div>
+      <div class="step reveal" style="transition-delay:.2s">
+        <span class="step-line"></span><div class="step-no">03</div>
+        <h3>Search by face</h3>
+        <p>Facial recognition instantly finds every photo you appear in — fast and private.</p>
+      </div>
+      <div class="step reveal" style="transition-delay:.3s">
+        <div class="step-no">04</div>
+        <h3>Choose &amp; buy</h3>
+        <p>Pick your favourites, purchase securely, and download your memories.</p>
+      </div>
+    </div>
+    <div style="text-align:center;margin-top:46px" class="reveal">
+      <a href="https://imagemedia.fotop.com" target="_blank" rel="noopener" class="btn btn-primary">Open the photo store <span class="arw">&rarr;</span></a>
+    </div>
+  </div>
+</section>
+
+<!-- ===================== OTHER SPACES ===================== -->
+<section class="section" id="spaces" style="background:var(--bg-2);border-top:1px solid var(--line)">
+  <div class="container">
+    <div class="section-head reveal">
+      <span class="eyebrow">More from Image Media</span>
+      <h2 class="display">More than <span class="accent-txt">events</span></h2>
+      <p>Beyond event coverage, four more spaces — each with its own home, for surfers, organisers, aspiring photographers and photo buyers.</p>
+    </div>
+    <div class="portals">
+      <div class="row-2">
+        <a class="portal lg reveal" href="surf.html">
+          <div class="portal-bg" style="background-image:url('https://images.squarespace-cdn.com/content/v1/68d118d75e6bb15424781300/84e215c4-7800-464a-9ff6-c7949282e0f7/paulonomade.jpg?format=1500w')"></div>
+          <div class="portal-in">
+            <div class="portal-pri"><b>01</b> Surfers &amp; surf schools</div>
+            <h3>Surf School Photos</h3>
+            <p>Choose your surf school and find your best wave with facial recognition.</p>
+            <span class="portal-go">Browse surf schools <span class="arw">&rarr;</span></span>
+          </div>
+        </a>
+        <a class="portal lg reveal" href="organizers.html" style="transition-delay:.08s">
+          <div class="portal-bg" style="background-image:url('https://images.squarespace-cdn.com/content/v1/68d118d75e6bb15424781300/0800eee7-eb58-43d1-96fb-3c6bee142f54/%40paulo.nomade_IBR3_-22.jpg?format=1500w')"></div>
+          <div class="portal-in">
+            <div class="portal-pri"><b>02</b> Event organisers</div>
+            <h3>Organizers</h3>
+            <p>A full media team for your event — at zero cost. See how we work.</p>
+            <span class="portal-go">See how we work <span class="arw">&rarr;</span></span>
+          </div>
+        </a>
+      </div>
+      <div class="row-2">
+        <a class="portal reveal" href="academy.html">
+          <div class="portal-bg" style="background-image:url('https://images.squarespace-cdn.com/content/v1/68d118d75e6bb15424781300/d88327f0-128e-46f2-9614-994663ce8332/%40paulo.nomade_WB_C-80.jpg?format=1200w')"></div>
+          <div class="portal-in">
+            <div class="portal-pri"><b>03</b> Aspiring photographers</div>
+            <h3>Photo Academy</h3>
+            <p>Learn the craft — then earn from it through our agency.</p>
+            <span class="portal-go">Discover the Academy <span class="arw">&rarr;</span></span>
+          </div>
+        </a>
+        <a class="portal reveal" href="stock.html" style="transition-delay:.08s">
+          <div class="portal-bg" style="background-image:url('https://images.squarespace-cdn.com/content/v1/68d118d75e6bb15424781300/4a563127-0b87-47bf-80d8-e7e7c3c02740/%40paulonomade+%289%29.jpg?format=1200w')"></div>
+          <div class="portal-in">
+            <div class="portal-pri"><b>04</b> Photo buyers &amp; fans</div>
+            <h3>Stock Gallery</h3>
+            <p>Selected photographers. Curated sport imagery to license.</p>
+            <span class="portal-go">Meet the photographers <span class="arw">&rarr;</span></span>
+          </div>
+        </a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ===================== BRAND STATEMENT ===================== -->
+<section class="section tight">
+  <div class="container">
+    <div class="section-head center reveal" style="margin-bottom:34px">
+      <span class="eyebrow">Who we are</span>
+      <h2 class="display">Turning fleeting moments into memories that <span class="accent-txt">inspire and endure</span></h2>
+      <p>Image Media is a team of professional sports photographers based in Europe. We capture the spirit and energy of sports events — and every detail we keep reflects not only what happened, but how it felt.</p>
+    </div>
+    <div style="text-align:center" class="reveal">
+      <a href="organizers.html" class="btn btn-primary">Partner with us <span class="arw">&rarr;</span></a>
+    </div>
+  </div>
+</section>
+
+<!-- ===================== AMBIENT PORTFOLIO STRIP ===================== -->
+<div class="pstrip" data-strip="a" aria-hidden="true"><div class="pstrip-track"></div></div>
+
+<footer class="footer" id="siteFoot"></footer>
+
+<script src="assets/data.js"></script>
+<script src="assets/main.js"></script>
+</body>
+</html>

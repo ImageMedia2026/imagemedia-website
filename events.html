@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Event Photos — Find &amp; Buy Your Photos — IMAGE MEDIA</title>
+<meta name="description" content="Find your photos from any sports event covered by Image Media. Search by event, sport or city, then buy your images securely through Fotop with facial recognition." />
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Crect width='100' height='100' fill='%230c0c0e'/%3E%3Crect x='14' y='14' width='72' height='72' fill='none' stroke='%23e6470d' stroke-width='9'/%3E%3C/svg%3E" />
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Anton&family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
+<link rel="stylesheet" href="assets/style.css" />
+</head>
+<body data-page="events">
+
+<nav class="nav" id="siteNav"></nav>
+
+<!-- ===================== PAGE HERO ===================== -->
+<header class="phero">
+  <div class="phero-bg" style="background-image:url('https://images.squarespace-cdn.com/content/v1/68d118d75e6bb15424781300/e58f3214-e7a8-44d1-8d1f-78659770cf48/12_%40paulo.nomade_CNM_Lousada-8215.jpg?format=2500w')"></div>
+  <div class="phero-inner">
+    <div class="container">
+      <span class="eyebrow">Event Photos · For athletes</span>
+      <h1 class="display">Your event photos<br>are <span class="accent-txt">ready</span></h1>
+      <p>Find the event you took part in, open your gallery, and relive every instant. Photos are organised by our partner Fotop — with facial recognition to take you straight to your best moments.</p>
+      <div class="phero-actions">
+        <a href="#events" class="btn btn-primary">Browse events <span class="arw">&rarr;</span></a>
+        <a href="https://imagemedia.fotop.com" target="_blank" rel="noopener" class="btn btn-ghost">Open the photo store</a>
+      </div>
+    </div>
+  </div>
+</header>
+
+<!-- ===================== EVENTS EXPLORER ===================== -->
+<section class="section" id="events">
+  <div class="container">
+    <div class="section-head reveal">
+      <span class="eyebrow">Find your event</span>
+      <h2 class="display">Every event we have covered</h2>
+      <p>Search by event name, city or sport, and filter to what you need. Each card links straight to its gallery.</p>
+    </div>
+    <div class="ev-controls reveal">
+      <div class="ev-search">
+        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke-width="2"><circle cx="11" cy="11" r="7"/><path d="m21 21-4.3-4.3"/></svg>
+        <input type="text" id="evSearch" placeholder="Search by event, city or sport…" />
+      </div>
+      <div class="chip-row" id="evStatus">
+        <span class="lbl">Status</span>
+        <button class="chip active" data-v="all">All</button>
+        <button class="chip" data-v="ready">Photos ready</button>
+        <button class="chip" data-v="upcoming">Upcoming</button>
+      </div>
+      <div class="chip-row" id="evCats">
+        <span class="lbl">Sport</span>
+        <button class="chip active" data-v="all">All sports</button>
+        <button class="chip" data-v="Running">Running</button>
+        <button class="chip" data-v="Trail">Trail</button>
+        <button class="chip" data-v="Cycling">Cycling</button>
+        <button class="chip" data-v="Triathlon">Triathlon</button>
+        <button class="chip" data-v="OCR">OCR</button>
+        <button class="chip" data-v="Functional">Functional</button>
+      </div>
+      <div class="ev-count" id="evCount"></div>
+    </div>
+    <div class="card-grid" id="evGrid"></div>
+  </div>
+</section>
+
+<div class="pstrip" data-strip="a" aria-hidden="true"><div class="pstrip-track"></div></div>
+
+<!-- ===================== HOW TO FIND ===================== -->
+<section class="section" style="background:var(--bg-2)">
+  <div class="container">
+    <div class="feature">
+      <div class="feature-media reveal">
+        <span class="frame-corner"></span>
+        <img src="https://images.squarespace-cdn.com/content/v1/68d118d75e6bb15424781300/91427b47-2f62-4580-a68e-67e5d546e93f/%40paulo.nomade-32+2.JPG?format=1500w" alt="Marathon runner" />
+      </div>
+      <div class="reveal">
+        <span class="eyebrow">How it works</span>
+        <h3 class="display">Find yourself in seconds</h3>
+        <p>No scrolling through thousands of photos. Our galleries use facial recognition, so each athlete is taken straight to their own images — fast, safe and private.</p>
+        <ul class="mini-list">
+          <li>Pick your event from the list above.</li>
+          <li>You are redirected to your secure gallery on Fotop.</li>
+          <li>Search with facial recognition to locate your photos.</li>
+          <li>Choose your favourites, purchase, and download your memories.</li>
+        </ul>
+        <div style="margin-top:26px">
+          <a href="https://imagemedia.fotop.com" target="_blank" rel="noopener" class="btn btn-primary">Go to the photo store <span class="arw">&rarr;</span></a>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ===================== CTA BAND ===================== -->
+<section class="cta-band">
+  <div class="cta-bg" style="background-image:url('https://images.squarespace-cdn.com/content/v1/68d118d75e6bb15424781300/5c6940df-7700-4bf9-8085-363c50f1ed8b/imagemedia_background.jpg?format=2000w')"></div>
+  <div class="container reveal">
+    <h2 class="display">Took part in a surf session?</h2>
+    <p>If your photos are from a surf school rather than an event, your gallery lives in our dedicated surf space.</p>
+    <a href="surf.html" class="btn btn-primary">Go to Surf School Photos <span class="arw">&rarr;</span></a>
+  </div>
+</section>
+
+<footer class="footer" id="siteFoot"></footer>
+
+<script src="assets/data.js"></script>
+<script src="assets/main.js"></script>
+</body>
+</html>
