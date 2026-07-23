@@ -22,9 +22,8 @@ var NAVLINKS=[
 ];
 function brand(href){
   return '<a class="brand" href="'+href+'" aria-label="Image Media home">'+
-    '<span class="brand-mark" aria-hidden="true"><i></i></span>'+
-    '<span class="brand-text"><span class="brand-word">IMAGE<em>MEDIA</em></span>'+
-    '<span class="brand-tag">frame by frame</span></span></a>';
+    '<img class="brand-logo" src="Logos/Imagemedia_Horizontal_Branca.png" alt="Image Media — Frame by Frame" />'+
+    '</a>';
 }
 function buildNav(){
   var nav=$("#siteNav"); if(!nav)return;
