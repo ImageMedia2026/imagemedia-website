@@ -17,7 +17,6 @@ var NAVLINKS=[
   ["surf.html","Surf","surf"],
   ["organizers.html","Organizers","organizers"],
   ["academy.html","Academy","academy"],
-  ["stock.html","Stock Gallery","stock"],
   ["about.html","About","about"]
 ];
 function brand(href){
@@ -49,7 +48,6 @@ function buildFooter(){
         '<a href="surf.html">Surf School Photos</a>'+
         '<a href="organizers.html">For Organizers</a>'+
         '<a href="academy.html">Photo Academy</a>'+
-        '<a href="stock.html">Stock Gallery</a>'+
         '<a href="about.html">About Image Media</a></div>'+
       '<div class="foot-col"><h5>Get in touch</h5>'+
         '<a href="mailto:contact@imagemedia.one">contact@imagemedia.one</a>'+
