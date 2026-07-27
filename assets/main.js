@@ -10,14 +10,15 @@ var $=function(s,c){return (c||document).querySelector(s);};
 var $$=function(s,c){return Array.prototype.slice.call((c||document).querySelectorAll(s));};
 var img=function(p,w){if(p&&p.indexOf("assets/")===0)return p;return CDN+p+"?format="+(w||1200)+"w";};
 var page=document.body.getAttribute("data-page")||"home";
+var T=(window.I18N&&window.I18N.t)?window.I18N.t:function(k){return k;};
 
 /* ---------------- NAV + FOOTER ---------------- */
 var NAVLINKS=[
-  ["events.html","Event Photos","events"],
-  ["surf.html","Surf","surf"],
-  ["organizers.html","Organizers","organizers"],
-  ["academy.html","Academy","academy"],
-  ["about.html","About","about"]
+  ["events.html","nav.events","events"],
+  ["surf.html","nav.surf","surf"],
+  ["organizers.html","nav.organizers","organizers"],
+  ["academy.html","nav.academy","academy"],
+  ["about.html","nav.about","about"]
 ];
 function brand(href){
   return '<a class="brand" href="'+href+'" aria-label="Image Media home">'+
@@ -28,36 +29,39 @@ function buildNav(){
   var nav=$("#siteNav"); if(!nav)return;
   var links=NAVLINKS.map(function(l){
     var act=(l[2]===page||(page==="photographer"&&l[2]==="stock"))?" active":"";
-    return '<a href="'+l[0]+'" class="'+act.trim()+'">'+l[1]+'</a>';
+    return '<a href="'+l[0]+'" class="'+act.trim()+'">'+T(l[1])+'</a>';
   }).join("");
+  var switcher=(window.I18N&&window.I18N.switcherHTML)?window.I18N.switcherHTML():"";
   nav.innerHTML=brand("index.html")+
     '<div class="nav-links" id="navLinks">'+links+'</div>'+
     '<div class="nav-cta">'+
-      '<a href="organizers.html#contact" class="btn btn-primary btn-sm">Partner with us</a>'+
+      switcher+
+      '<a href="organizers.html#contact" class="btn btn-primary btn-sm">'+T("nav.partner")+'</a>'+
       '<button class="burger" id="burger" aria-label="Menu"><span></span><span></span><span></span></button>'+
     '</div>';
+  if(window.I18N&&window.I18N.wireSwitcher)window.I18N.wireSwitcher(nav);
 }
 function buildFooter(){
   var f=$("#siteFoot"); if(!f)return;
   f.innerHTML='<div class="container">'+
     '<div class="foot-top">'+
       '<div class="foot-brand">'+brand("index.html")+
-        '<p>A sports-event media partner. We capture every athlete, publish galleries the same day, and hand organisers content built for sponsors and socials.</p></div>'+
-      '<div class="foot-col"><h5>Spaces</h5>'+
-        '<a href="events.html">Event Photos</a>'+
-        '<a href="surf.html">Surf School Photos</a>'+
-        '<a href="organizers.html">For Organizers</a>'+
-        '<a href="academy.html">Photo Academy</a>'+
-        '<a href="about.html">About Image Media</a></div>'+
-      '<div class="foot-col"><h5>Get in touch</h5>'+
+        '<p>'+T("footer.tagline")+'</p></div>'+
+      '<div class="foot-col"><h5>'+T("footer.spacesHeading")+'</h5>'+
+        '<a href="events.html">'+T("footer.spaces.events")+'</a>'+
+        '<a href="surf.html">'+T("footer.spaces.surf")+'</a>'+
+        '<a href="organizers.html">'+T("footer.spaces.organizers")+'</a>'+
+        '<a href="academy.html">'+T("footer.spaces.academy")+'</a>'+
+        '<a href="about.html">'+T("footer.spaces.about")+'</a></div>'+
+      '<div class="foot-col"><h5>'+T("footer.contactHeading")+'</h5>'+
         '<a href="mailto:contact@imagemedia.one">contact@imagemedia.one</a>'+
         '<a href="tel:+34600680630">+34 600 68 06 30</a>'+
-        '<a href="https://www.instagram.com/IMAGEMEDIA.ONE" target="_blank" rel="noopener">Instagram</a>'+
-        '<a href="https://fotop.com/?pais=es&lang=en" target="_blank" rel="noopener">Galleries on Fotop</a></div>'+
+        '<a href="https://www.instagram.com/IMAGEMEDIA.ONE" target="_blank" rel="noopener">'+T("footer.instagram")+'</a>'+
+        '<a href="https://fotop.com/?pais=es&lang=en" target="_blank" rel="noopener">'+T("footer.galleries")+'</a></div>'+
     '</div>'+
     '<div class="foot-bottom">'+
-      '<p>&copy; 2026 Image Media &middot; Powered by Image Media, in partnership with Fotop &middot; Design &copy;imagemedia</p>'+
-      '<span class="foot-badge">Proposed redesign &mdash; preview, not the live site</span>'+
+      '<p>'+T("footer.copyright")+'</p>'+
+      '<span class="foot-badge">'+T("footer.badge")+'</span>'+
     '</div></div>';
 }
 
@@ -154,14 +158,14 @@ function eventCard(e){
   return '<article class="ev-card reveal">'+
     '<a href="'+e.url+'" target="_blank" rel="noopener" class="ev-thumb">'+
       '<img src="'+img(e.img,900)+'" alt="'+e.n+'" loading="lazy">'+
-      '<span class="ev-status '+e.s+'">'+(e.s==="ready"?"Photos ready":"Upcoming")+'</span>'+
+      '<span class="ev-status '+e.s+'">'+(e.s==="ready"?T("ev.ready"):T("ev.upcoming"))+'</span>'+
       '<span class="ev-cat">'+e.c+'</span></a>'+
     '<div class="ev-body">'+
       '<span class="ev-date">'+e.d+'</span>'+
       '<h3 class="ev-name">'+e.n+'</h3>'+
       '<span class="ev-loc">&#9678; '+e.loc+'</span>'+
       '<a href="'+e.url+'" target="_blank" rel="noopener" class="ev-link">'+
-        (e.s==="ready"?"View gallery":"Event details")+' <span class="arw">&rarr;</span></a>'+
+        (e.s==="ready"?T("ev.viewGallery"):T("ev.eventDetails"))+' <span class="arw">&rarr;</span></a>'+
     '</div></article>';
 }
 function renderEvents(){
@@ -176,9 +180,9 @@ function renderEvents(){
     return a.s==="upcoming"?a.iso.localeCompare(b.iso):b.iso.localeCompare(a.iso);
   });
   var c=$("#evCount");
-  if(c)c.textContent=list.length+" "+(list.length===1?"event":"events");
+  if(c)c.textContent=list.length+" "+(list.length===1?T("ev.countSingular"):T("ev.countPlural"));
   grid.innerHTML=list.length?list.map(eventCard).join(""):
-    '<div class="ev-empty">No events match your search yet — try a different sport or keyword.</div>';
+    '<div class="ev-empty">'+T("ev.empty")+'</div>';
   observeReveals();
 }
 function initEvents(){
@@ -207,12 +211,12 @@ function renderSurf(){
     return '<article class="ev-card reveal">'+
       '<a href="'+s.url+'" target="_blank" rel="noopener" class="ev-thumb">'+
         '<img src="'+img(s.img,900)+'" alt="'+s.n+'" loading="lazy">'+
-        '<span class="ev-status ready">Gallery open</span></a>'+
+        '<span class="ev-status ready">'+T("surf.galleryOpen")+'</span></a>'+
       '<div class="ev-body">'+
-        '<span class="ev-date">Surf School</span>'+
+        '<span class="ev-date">'+T("surf.surfSchool")+'</span>'+
         '<h3 class="ev-name">'+s.n+'</h3>'+
         '<span class="ev-loc">&#9678; '+s.sub+'</span>'+
-        '<a href="'+s.url+'" target="_blank" rel="noopener" class="ev-link">Find your photos <span class="arw">&rarr;</span></a>'+
+        '<a href="'+s.url+'" target="_blank" rel="noopener" class="ev-link">'+T("surf.findPhotos")+' <span class="arw">&rarr;</span></a>'+
       '</div></article>';
   }).join("");
   observeReveals();
@@ -232,7 +236,7 @@ function renderShooters(){
       avatar(p)+
       '<span class="shooter-name">'+p.name+'</span>'+
       '<span class="shooter-tag">'+p.tag+'</span>'+
-      '<span class="shooter-view">View portfolio <span class="arw">&rarr;</span></span>'+
+      '<span class="shooter-view">'+T("stock.viewPortfolio")+' <span class="arw">&rarr;</span></span>'+
     '</a>';
   }).join("");
   observeReveals();
@@ -253,21 +257,21 @@ function renderProfile(){
       '<img src="'+img(ph,1000)+'" alt="'+p.name+' photograph '+(idx+1)+'" loading="lazy"></figure>';
   }).join("");
   mount.innerHTML=
-    '<a href="stock.html" class="backlink">&larr; All photographers</a>'+
+    '<a href="stock.html" class="backlink">'+T("profile.backlink")+'</a>'+
     '<div class="profile-head reveal">'+avatar(p)+
       '<div><div class="profile-tag">'+p.tag+'</div>'+
       '<h1 class="profile-name display">'+p.name+'</h1></div></div>'+
     '<p class="profile-bio reveal">'+p.bio+'</p>'+
     '<div class="profile-meta reveal">'+
-      '<div><div class="k">Based in</div><div class="v">'+p.based+'</div></div>'+
-      '<div><div class="k">With Image Media since</div><div class="v">'+p.since+'</div></div>'+
-      '<div><div class="k">Specialty</div><div class="v">'+p.tag+'</div></div>'+
+      '<div><div class="k">'+T("profile.basedIn")+'</div><div class="v">'+p.based+'</div></div>'+
+      '<div><div class="k">'+T("profile.since")+'</div><div class="v">'+p.since+'</div></div>'+
+      '<div><div class="k">'+T("profile.specialty")+'</div><div class="v">'+p.tag+'</div></div>'+
     '</div>'+
     '<div class="profile-photos reveal" id="profilePhotos" style="margin-top:46px">'+shots+'</div>'+
     '<div class="profile-cta reveal">'+
-      '<div><h3>See the full collection</h3>'+
-      '<p>These are six selected frames. Browse '+p.name.split(" ")[0]+"'s"+' complete archive and buy any photo securely through Fotop.</p></div>'+
-      '<a href="'+(D.FOTOP)+'" target="_blank" rel="noopener" class="btn btn-primary">View all photos on Fotop <span class="arw">&rarr;</span></a>'+
+      '<div><h3>'+T("profile.collectionHeading")+'</h3>'+
+      '<p>'+T("profile.collectionDesc",{name:p.name.split(" ")[0]})+'</p></div>'+
+      '<a href="'+(D.FOTOP)+'" target="_blank" rel="noopener" class="btn btn-primary">'+T("profile.viewAllBtn")+'</a>'+
     '</div>';
   $$("#profilePhotos .pf-shot").forEach(function(el){
     el.addEventListener("click",function(){openLb(full,+el.getAttribute("data-i"));});
