@@ -15,6 +15,7 @@ var T=(window.I18N&&window.I18N.t)?window.I18N.t:function(k){return k;};
 /* ---------------- NAV + FOOTER ---------------- */
 var NAVLINKS=[
   ["events.html","nav.events","events"],
+  ["portfolio.html","nav.portfolio","portfolio"],
   ["surf.html","nav.surf","surf"],
   ["organizers.html","nav.organizers","organizers"],
   ["academy.html","nav.academy","academy"],
@@ -279,6 +280,54 @@ function renderProfile(){
   observeReveals();
 }
 
+
+/* ---------------- PORTFOLIO ---------------- */
+function renderPortfolio(){
+  var grid=$("#portfolioGrid"); if(!grid)return;
+  var filters=$("#portfolioFilters");
+  var cats=D.PORTFOLIO_CATS||[];
+  var imgs=D.PORTFOLIO_IMAGES||{};
+
+  function thumbSrc(slug,file){
+    return img("assets/images/portfolio/"+slug+"/"+file.replace(/\.jpg$/,"-thumb.jpg"));
+  }
+  function fullSrc(slug,file){
+    return img("assets/images/portfolio/"+slug+"/"+file);
+  }
+  function allEntries(){
+    var out=[];
+    cats.forEach(function(c){(imgs[c.slug]||[]).forEach(function(f){out.push({slug:c.slug,file:f});});});
+    return out;
+  }
+  function renderGrid(filter){
+    var entries = filter==="all" ? allEntries() : (imgs[filter]||[]).map(function(f){return {slug:filter,file:f};});
+    var full = entries.map(function(e){return fullSrc(e.slug,e.file);});
+    grid.innerHTML = entries.map(function(e,idx){
+      return '<figure class="pf-shot" data-i="'+idx+'">'+
+        '<img src="'+thumbSrc(e.slug,e.file)+'" alt="Image Media '+e.slug.replace(/-/g," ")+' coverage" loading="lazy"></figure>';
+    }).join("");
+    $$(".pf-shot",grid).forEach(function(el){
+      el.addEventListener("click",function(){openLb(full,+el.getAttribute("data-i"));});
+    });
+  }
+  if(filters){
+    var chips=['<span class="lbl" data-i18n="portfolio.filter.label">Filter</span>',
+      '<button class="chip active" data-filter="all" aria-pressed="true">'+T("portfolio.filter.all")+'</button>']
+      .concat(cats.map(function(c){
+        return '<button class="chip" data-filter="'+c.slug+'" aria-pressed="false">'+T("portfolio.cat."+c.key)+'</button>';
+      }));
+    filters.innerHTML=chips.join("");
+    $$(".chip",filters).forEach(function(btn){
+      btn.addEventListener("click",function(){
+        $$(".chip",filters).forEach(function(b){b.classList.remove("active");b.setAttribute("aria-pressed","false");});
+        btn.classList.add("active");btn.setAttribute("aria-pressed","true");
+        renderGrid(btn.getAttribute("data-filter"));
+      });
+    });
+  }
+  renderGrid("all");
+}
+
 /* ---------------- INIT ---------------- */
 buildNav();
 buildFooter();
@@ -291,6 +340,7 @@ initEvents();
 renderSurf();
 renderShooters();
 renderProfile();
+renderPortfolio();
 observeReveals();
 observeCounts();
 

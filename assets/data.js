@@ -103,5 +103,50 @@ window.IM = {
 
   /* ---- ambient portfolio strips ---- */
   STRIP_A: ["e545c006-1bf2-440c-9a3f-821f72217807/IMG_3996.JPG","b216261b-5833-4b05-a7d4-ac410d5f155b/GjI4E-tXEAAfiFQ.jpg","8182e9f1-3a74-4563-9a94-f02541c4063e/%40paulo.nomade_IBR_D1-126.jpg","f976ce78-6a49-4f14-a0eb-36ff3cd93c98/MX+Vieira+do+Minho_2025+%28458+of+460%29.jpg","e768fc34-c32d-4ab2-a164-9730637ef3b3/IMGL8514.jpg","93b41c73-1bc1-4bf4-80b1-af2313011a65/%40paulo.nomade-Caminha_-22.jpg","6ddec230-a7d4-4dc7-8384-a7e9fa2929e5/DSC09112-2.JPG","4d091cc0-0447-4e63-b127-55bad54a9747/Raulrdg_01-1570_181917.jpg"],
-  STRIP_B: ["50e75b22-f35d-4d46-aa12-57b807cc8a4d/%40paulo.nomade_NATIONAL+OPEN_JIUJITSU-66.jpg","91427b47-2f62-4580-a68e-67e5d546e93f/%40paulo.nomade-32+2.JPG","0800eee7-eb58-43d1-96fb-3c6bee142f54/%40paulo.nomade_IBR3_-22.jpg","d458293e-4755-4389-8571-c7692c266b5f/%40paulo.nomade_M-601.jpg","5562fa46-6ed7-4052-bfa9-f1e70477a885/wideshotsluis3356.JPG","150e3670-9b8e-4a38-8642-7a214a5f172d/20230211_edu_castro-7248.jpg","cc75a17b-4331-4076-bddb-e28075d93ab7/wideshotsluis3389.JPG","d219f74b-1d16-4f7e-a0b9-32bcc5cb5d1a/%40paulo.nomade_WB_C-66.jpg"]
+  STRIP_B: ["50e75b22-f35d-4d46-aa12-57b807cc8a4d/%40paulo.nomade_NATIONAL+OPEN_JIUJITSU-66.jpg","91427b47-2f62-4580-a68e-67e5d546e93f/%40paulo.nomade-32+2.JPG","0800eee7-eb58-43d1-96fb-3c6bee142f54/%40paulo.nomade_IBR3_-22.jpg","d458293e-4755-4389-8571-c7692c266b5f/%40paulo.nomade_M-601.jpg","5562fa46-6ed7-4052-bfa9-f1e70477a885/wideshotsluis3356.JPG","150e3670-9b8e-4a38-8642-7a214a5f172d/20230211_edu_castro-7248.jpg","cc75a17b-4331-4076-bddb-e28075d93ab7/wideshotsluis3389.JPG","d219f74b-1d16-4f7e-a0b9-32bcc5cb5d1a/%40paulo.nomade_WB_C-66.jpg"],
+
+  /* ---- portfolio showcase (added) ---- */
+  PORTFOLIO_CATS: [
+    {slug:"cycling",key:"cycling"},
+    {slug:"triathlon",key:"triathlon"},
+    {slug:"trail",key:"trail"},
+    {slug:"running",key:"running"},
+    {slug:"track-and-field",key:"trackfield"},
+    {slug:"crossfit-hyrox",key:"crossfit"},
+    {slug:"ocr",key:"ocr"},
+    {slug:"martial-arts",key:"martialarts"},
+    {slug:"kart",key:"kart"},
+    {slug:"motorsport",key:"motorsport"},
+    {slug:"football",key:"football"},
+    {slug:"rugby",key:"rugby"},
+    {slug:"tennis",key:"tennis"},
+    {slug:"beach-volleyball",key:"beachvolley"},
+    {slug:"swimming",key:"swimming"},
+    {slug:"surf",key:"surf"},
+    {slug:"sailing",key:"sailing"},
+    {slug:"gymnastics",key:"gymnastics"},
+    {slug:"canicross",key:"canicross"}
+  ],
+  PORTFOLIO_IMAGES: {
+    "cycling":["cycling-01.jpg", "cycling-02.jpg", "cycling-03.jpg", "cycling-04.jpg", "cycling-05.jpg", "cycling-06.jpg", "cycling-07.jpg", "cycling-08.jpg", "cycling-09.jpg", "cycling-10.jpg", "cycling-11.jpg", "cycling-12.jpg", "cycling-13.jpg", "cycling-14.jpg"],
+    "triathlon":["triathlon-01.jpg", "triathlon-02.jpg", "triathlon-03.jpg", "triathlon-04.jpg", "triathlon-05.jpg", "triathlon-06.jpg", "triathlon-07.jpg", "triathlon-08.jpg", "triathlon-09.jpg", "triathlon-10.jpg", "triathlon-11.jpg", "triathlon-12.jpg", "triathlon-13.jpg", "triathlon-14.jpg"],
+    "trail":["trail-01.jpg", "trail-02.jpg", "trail-03.jpg", "trail-04.jpg", "trail-05.jpg", "trail-06.jpg", "trail-07.jpg", "trail-08.jpg", "trail-09.jpg", "trail-10.jpg", "trail-11.jpg", "trail-12.jpg", "trail-13.jpg"],
+    "running":["running-01.jpg", "running-02.jpg", "running-03.jpg", "running-04.jpg", "running-05.jpg", "running-06.jpg", "running-07.jpg", "running-08.jpg"],
+    "track-and-field":["track-and-field-01.jpg", "track-and-field-02.jpg", "track-and-field-03.jpg", "track-and-field-04.jpg", "track-and-field-05.jpg", "track-and-field-06.jpg", "track-and-field-07.jpg", "track-and-field-08.jpg", "track-and-field-09.jpg", "track-and-field-10.jpg", "track-and-field-11.jpg", "track-and-field-12.jpg", "track-and-field-13.jpg", "track-and-field-14.jpg"],
+    "crossfit-hyrox":["crossfit-hyrox-01.jpg", "crossfit-hyrox-02.jpg", "crossfit-hyrox-03.jpg", "crossfit-hyrox-04.jpg", "crossfit-hyrox-05.jpg", "crossfit-hyrox-06.jpg", "crossfit-hyrox-07.jpg", "crossfit-hyrox-08.jpg", "crossfit-hyrox-09.jpg", "crossfit-hyrox-10.jpg", "crossfit-hyrox-11.jpg", "crossfit-hyrox-12.jpg", "crossfit-hyrox-13.jpg", "crossfit-hyrox-14.jpg"],
+    "ocr":["ocr-01.jpg", "ocr-02.jpg", "ocr-03.jpg", "ocr-04.jpg", "ocr-05.jpg", "ocr-06.jpg", "ocr-07.jpg", "ocr-08.jpg", "ocr-09.jpg"],
+    "martial-arts":["martial-arts-01.jpg", "martial-arts-02.jpg", "martial-arts-03.jpg"],
+    "kart":["kart-01.jpg", "kart-02.jpg", "kart-03.jpg", "kart-04.jpg", "kart-05.jpg", "kart-06.jpg", "kart-07.jpg", "kart-08.jpg", "kart-09.jpg", "kart-10.jpg", "kart-11.jpg", "kart-12.jpg", "kart-13.jpg", "kart-14.jpg"],
+    "motorsport":["motorsport-01.jpg", "motorsport-02.jpg", "motorsport-03.jpg", "motorsport-04.jpg", "motorsport-05.jpg"],
+    "football":["football-01.jpg", "football-02.jpg", "football-03.jpg", "football-04.jpg", "football-05.jpg", "football-06.jpg", "football-07.jpg", "football-08.jpg", "football-09.jpg", "football-10.jpg", "football-11.jpg", "football-12.jpg", "football-13.jpg"],
+    "rugby":["rugby-01.jpg", "rugby-02.jpg", "rugby-03.jpg", "rugby-04.jpg", "rugby-05.jpg", "rugby-06.jpg", "rugby-07.jpg", "rugby-08.jpg", "rugby-09.jpg"],
+    "tennis":["tennis-01.jpg", "tennis-02.jpg", "tennis-03.jpg", "tennis-04.jpg", "tennis-05.jpg"],
+    "beach-volleyball":["beach-volleyball-01.jpg", "beach-volleyball-02.jpg", "beach-volleyball-03.jpg", "beach-volleyball-04.jpg", "beach-volleyball-05.jpg"],
+    "swimming":["swimming-01.jpg", "swimming-02.jpg", "swimming-03.jpg", "swimming-04.jpg", "swimming-05.jpg", "swimming-06.jpg", "swimming-07.jpg"],
+    "surf":["surf-01.jpg", "surf-02.jpg", "surf-03.jpg"],
+    "sailing":["sailing-01.jpg", "sailing-02.jpg", "sailing-03.jpg", "sailing-04.jpg", "sailing-05.jpg", "sailing-06.jpg", "sailing-07.jpg", "sailing-08.jpg"],
+    "gymnastics":["gymnastics-01.jpg", "gymnastics-02.jpg"],
+    "canicross":["canicross-01.jpg", "canicross-02.jpg", "canicross-03.jpg", "canicross-04.jpg"]
+  }
+
 };
