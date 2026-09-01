@@ -284,7 +284,7 @@ function renderProfile(){
 /* ---------------- PORTFOLIO ---------------- */
 function renderPortfolio(){
   var grid=$("#portfolioGrid"); if(!grid)return;
-  var filters=$("#portfolioFilters");
+  var panel=$("#portfolioFilters");
   var cats=D.PORTFOLIO_CATS||[];
   var imgs=D.PORTFOLIO_IMAGES||{};
 
@@ -294,38 +294,63 @@ function renderPortfolio(){
   function fullSrc(slug,file){
     return img("assets/images/portfolio/"+slug+"/"+file);
   }
-  function allEntries(){
-    var out=[];
-    cats.forEach(function(c){(imgs[c.slug]||[]).forEach(function(f){out.push({slug:c.slug,file:f});});});
-    return out;
+  function countLabel(n){
+    return T("portfolio.photoCount").replace("{n}",n);
   }
-  function renderGrid(filter){
-    var entries = filter==="all" ? allEntries() : (imgs[filter]||[]).map(function(f){return {slug:filter,file:f};});
-    var full = entries.map(function(e){return fullSrc(e.slug,e.file);});
-    grid.innerHTML = entries.map(function(e,idx){
+
+  function renderAlbums(){
+    grid.className="pf-albums";
+    if(panel) panel.innerHTML="";
+    grid.innerHTML = cats.map(function(c){
+      var list=imgs[c.slug]||[];
+      var cover=list[0]||"";
+      return '<div class="pf-album" data-slug="'+c.slug+'">'+
+        '<img src="'+thumbSrc(c.slug,cover)+'" alt="Image Media '+c.slug.replace(/-/g," ")+' coverage" loading="lazy">'+
+        '<span class="pf-album-count">'+countLabel(list.length)+'</span>'+
+        '<span class="pf-album-name">'+T("portfolio.cat."+c.key)+'</span>'+
+        '<span class="pf-album-view">'+T("portfolio.gallery.eyebrow")+' <span class="arw">&rarr;</span></span>'+
+      '</div>';
+    }).join("");
+    $$(".pf-album",grid).forEach(function(el){
+      el.addEventListener("click",function(){
+        location.hash="gallery="+el.getAttribute("data-slug");
+      });
+    });
+  }
+
+  function renderDetail(slug){
+    var cat=null;
+    for(var i=0;i<cats.length;i++){ if(cats[i].slug===slug){ cat=cats[i]; break; } }
+    if(!cat){ location.hash="gallery"; return; }
+    var list=imgs[slug]||[];
+    var full=list.map(function(f){return fullSrc(slug,f);});
+
+    if(panel){
+      panel.innerHTML =
+        '<button class="pf-back" id="pfBack">&larr; '+T("portfolio.back")+'</button>'+
+        '<div class="pf-detail-head"><h3>'+T("portfolio.cat."+cat.key)+'</h3><span>'+countLabel(list.length)+'</span></div>';
+      $("#pfBack",panel).addEventListener("click",function(){ location.hash="gallery"; });
+    }
+    grid.className="profile-photos";
+    grid.innerHTML = list.map(function(f,idx){
       return '<figure class="pf-shot" data-i="'+idx+'">'+
-        '<img src="'+thumbSrc(e.slug,e.file)+'" alt="Image Media '+e.slug.replace(/-/g," ")+' coverage" loading="lazy"></figure>';
+        '<img src="'+thumbSrc(slug,f)+'" alt="Image Media '+slug.replace(/-/g," ")+' coverage" loading="lazy"></figure>';
     }).join("");
     $$(".pf-shot",grid).forEach(function(el){
       el.addEventListener("click",function(){openLb(full,+el.getAttribute("data-i"));});
     });
   }
-  if(filters){
-    var chips=['<span class="lbl" data-i18n="portfolio.filter.label">Filter</span>',
-      '<button class="chip active" data-filter="all" aria-pressed="true">'+T("portfolio.filter.all")+'</button>']
-      .concat(cats.map(function(c){
-        return '<button class="chip" data-filter="'+c.slug+'" aria-pressed="false">'+T("portfolio.cat."+c.key)+'</button>';
-      }));
-    filters.innerHTML=chips.join("");
-    $$(".chip",filters).forEach(function(btn){
-      btn.addEventListener("click",function(){
-        $$(".chip",filters).forEach(function(b){b.classList.remove("active");b.setAttribute("aria-pressed","false");});
-        btn.classList.add("active");btn.setAttribute("aria-pressed","true");
-        renderGrid(btn.getAttribute("data-filter"));
-      });
-    });
+
+  function route(){
+    var h=location.hash.replace(/^#/,"");
+    if(h.indexOf("gallery=")===0){
+      renderDetail(h.slice("gallery=".length));
+    } else {
+      renderAlbums();
+    }
   }
-  renderGrid("all");
+  window.addEventListener("hashchange",route);
+  route();
 }
 
 /* ---------------- INIT ---------------- */
