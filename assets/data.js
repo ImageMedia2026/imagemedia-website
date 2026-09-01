@@ -142,7 +142,7 @@ window.IM = {
     "rugby":["rugby-01.jpg", "rugby-02.jpg", "rugby-03.jpg", "rugby-04.jpg", "rugby-05.jpg", "rugby-06.jpg", "rugby-07.jpg", "rugby-08.jpg", "rugby-09.jpg"],
     "tennis":["tennis-01.jpg", "tennis-02.jpg", "tennis-03.jpg", "tennis-04.jpg", "tennis-05.jpg"],
     "beach-volleyball":["beach-volleyball-01.jpg", "beach-volleyball-02.jpg", "beach-volleyball-03.jpg", "beach-volleyball-04.jpg", "beach-volleyball-05.jpg"],
-    "swimming":["swimming-01.jpg", "swimming-02.jpg", "swimming-03.jpg", "swimming-04.jpg", "swimming-05.jpg", "swimming-06.jpg", "swimming-07.jpg"],
+    "swimming":["swimming-01.jpg", "swimming-02.jpg", "swimming-03.jpg", "swimming-04.jpg", "swimming-05.jpg", "swimming-06.jpg"],
     "surf":["surf-01.jpg", "surf-02.jpg", "surf-03.jpg"],
     "sailing":["sailing-01.jpg", "sailing-02.jpg", "sailing-03.jpg", "sailing-04.jpg", "sailing-05.jpg", "sailing-06.jpg", "sailing-07.jpg", "sailing-08.jpg"],
     "gymnastics":["gymnastics-01.jpg", "gymnastics-02.jpg"],
