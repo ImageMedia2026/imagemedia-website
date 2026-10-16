@@ -12,6 +12,22 @@
 <link rel="stylesheet" href="assets/style.css" />
 </head>
 <body data-page="home">
+<!-- BEGIN temporary GF La Nucia promotion: remove this block and its style when requested -->
+<style id="im-nucia-promo-style">
+#im-nucia-promo{background:#191714;padding:28px 20px 32px;border-bottom:4px solid #db6a00;display:flex;justify-content:center;gap:24px}
+#im-nucia-promo a{display:block;width:min(calc((100% - 24px)/2),480px);border-radius:4px;box-shadow:0 12px 36px #0005}
+#im-nucia-promo img{display:block;width:100%;height:auto;aspect-ratio:1/1;border-radius:4px}
+#im-nucia-promo a:focus-visible{outline:4px solid #fff;outline-offset:6px}
+#im-nucia-promo a:hover{outline:2px solid #ee8d32;outline-offset:5px}
+body[data-page="home"] #siteNav{position:sticky}
+@media(max-width:600px){#im-nucia-promo{padding:16px;flex-direction:column;align-items:center;gap:16px}#im-nucia-promo a{width:100%;max-width:480px}}
+</style>
+<section id="im-nucia-promo" aria-label="GF La Nucía — fotos de cortesía / courtesy photos">
+<a lang="es" href="https://fotop.com/events/fotos-de-cortesia-uci-gran-fondo-la-nucia-world-series-2026/e/348231"><img src="Cortesia-ESP.jpg" width="1080" height="1080" alt="GF La Nucía — fotos de cortesía. Recoge aquí tus fotos." fetchpriority="high"></a>
+<a lang="en" href="https://fotop.com/events/fotos-de-cortesia-uci-gran-fondo-la-nucia-world-series-2026/e/348231"><img src="Cortesia-ING.jpg" width="1080" height="1080" alt="GF La Nucía — courtesy photos. Get your photos here." fetchpriority="high"></a>
+</section>
+<!-- END temporary GF La Nucia promotion -->
+
 
 <nav class="nav" id="siteNav"></nav>
 
