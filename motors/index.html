@@ -106,6 +106,8 @@
   document.querySelectorAll('#siteFoot a[href*="fotop.com"]').forEach(function (link) {
     link.remove();
   });
+  var previewBadge = document.querySelector('#siteFoot .foot-badge');
+  if (previewBadge) previewBadge.remove();
 </script>
 </body>
 </html>
