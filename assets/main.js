@@ -17,6 +17,7 @@ var NAVLINKS=[
   ["events.html","nav.events","events"],
   ["portfolio.html","nav.portfolio","portfolio"],
   ["surf.html","nav.surf","surf"],
+  ["motors/","nav.motors","motors"],
   ["organizers.html","nav.organizers","organizers"],
   ["academy.html","nav.academy","academy"],
   ["about.html","nav.about","about"]

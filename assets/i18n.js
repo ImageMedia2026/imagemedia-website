@@ -196,7 +196,16 @@ en:{
 "surf.how.eyebrow":`Fast &amp; private`,"surf.how.title":`Your best moment, found by face`,
 "surf.how.desc":`No endless scrolling. Pick your school, and facial recognition takes you straight to your own rides — quick, safe and private.`,
 "surf.how.li1":`Choose your surf school from the list above.`,"surf.how.li2":`Open your gallery on Fotop.`,"surf.how.li3":`Search by face to find every photo you appear in.`,"surf.how.li4":`Select, buy and share the waves worth keeping.`,
-"surf.cta.title":`Run a surf school?`,"surf.cta.desc":`Bring fast, facial-recognition photo galleries to your students — at no cost to your school. Let's talk.`,"surf.cta.btn":`Partner with Image Media <span class="arw">&rarr;</span>`
+"surf.cta.title":`Run a surf school?`,"surf.cta.desc":`Bring fast, facial-recognition photo galleries to your students — at no cost to your school. Let's talk.`,"surf.cta.btn":`Partner with Image Media <span class="arw">&rarr;</span>`,
+"nav.motors":`Motors`,
+"motors.meta.title":`IM Motors — Karting Photography | Image Media`,"motors.meta.description":`IM Motors presents Image Media's karting photography experience. Discover Euroindy — Kartódromo da Batalha and consult the circuit's official information.`,
+"motors.hero.eyebrow":`Image Media &middot; Karting`,"motors.hero.title":`Your lap.<br><span class="accent-txt">Our focus.</span>`,"motors.hero.body":`Action photography created to preserve the speed, concentration and emotion experienced on the track.`,
+"motors.circuits.eyebrow":`Circuits`,"motors.circuits.title":`Choose the track`,"motors.circuits.body":`The first circuit featured in the IM Motors world is Euroindy — Kartódromo da Batalha.`,
+"motors.circuit.imageAlt":`Aerial view of Euroindy — Kartódromo da Batalha, showing the track, building and surrounding forest`,"motors.circuit.location":`Batalha &middot; Portugal`,"motors.circuit.photosCta":`Get your photos`,"motors.circuit.pending":`The destination will be available after the Image Media Motors platform launches.`,"motors.circuit.rental":`Official kart rental information <span aria-hidden="true">↗</span>`,
+"motors.gallery.label":`Generic karting and motorsport photographs from the Image Media portfolio`,"motors.gallery.alt1":`Driver in a blue and orange kart on track`,"motors.gallery.alt2":`Two kart drivers on track`,"motors.gallery.alt3":`Front view of a kart driver`,"motors.gallery.alt4":`Racing car on track`,"motors.gallery.caption":`Image Media portfolio selection &middot; Illustrative images, not identified as Euroindy`,
+"motors.story.imageAlt":`Kart driver photographed in motion`,"motors.story.eyebrow":`The experience`,"motors.story.title":`From the track to the memory`,"motors.story.body":`The IM Motors visual concept follows the rhythm of each session: movement, detail and emotion in images with the Image Media identity.`,
+"motors.story.step1.title":`Choose the circuit`,"motors.story.step1.body":`Consult the location and the track's official information.`,"motors.story.step2.title":`Identify the session`,"motors.story.step2.body":`The date and time will be the reference for organising each photography experience.`,"motors.story.step3.title":`Relive every lap`,"motors.story.step3.body":`A visual presentation prepared for future galleries, without simulating services that are not yet available.`,
+"motors.signoff.title":`Speed.<br><span class="accent-txt">Framed.</span>`,"motors.signoff.body":`A new Image Media visual space dedicated to karting and motorsport.`
 },
 es:{
 "nav.portfolio":`Portafolio`,
@@ -381,7 +390,16 @@ es:{
 "surf.how.eyebrow":`Rápido y privado`,"surf.how.title":`Tu mejor momento, encontrado por tu rostro`,
 "surf.how.desc":`Sin scroll interminable. Elige tu escuela y el reconocimiento facial te lleva directo a tus propias sesiones — rápido, seguro y privado.`,
 "surf.how.li1":`Elige tu escuela de surf de la lista de arriba.`,"surf.how.li2":`Abre tu galería en Fotop.`,"surf.how.li3":`Busca por rostro para encontrar todas las fotos en las que apareces.`,"surf.how.li4":`Elige, compra y comparte las olas que merece la pena guardar.`,
-"surf.cta.title":`¿Diriges una escuela de surf?`,"surf.cta.desc":`Lleva galerías de fotos rápidas con reconocimiento facial a tus alumnos — sin coste para tu escuela. Hablemos.`,"surf.cta.btn":`Colabora con Image Media <span class="arw">&rarr;</span>`
+"surf.cta.title":`¿Diriges una escuela de surf?`,"surf.cta.desc":`Lleva galerías de fotos rápidas con reconocimiento facial a tus alumnos — sin coste para tu escuela. Hablemos.`,"surf.cta.btn":`Colabora con Image Media <span class="arw">&rarr;</span>`,
+"nav.motors":`Motor`,
+"motors.meta.title":`IM Motors — Fotografía de Karting | Image Media`,"motors.meta.description":`IM Motors presenta la experiencia de fotografía de karting de Image Media. Descubre Euroindy — Kartódromo da Batalha y consulta la información oficial del circuito.`,
+"motors.hero.eyebrow":`Image Media &middot; Karting`,"motors.hero.title":`Tu vuelta.<br><span class="accent-txt">Nuestra mirada.</span>`,"motors.hero.body":`Fotografía de acción creada para conservar la velocidad, la concentración y la emoción vividas en pista.`,
+"motors.circuits.eyebrow":`Circuitos`,"motors.circuits.title":`Elige la pista`,"motors.circuits.body":`El primer circuito presentado en el universo IM Motors es Euroindy — Kartódromo da Batalha.`,
+"motors.circuit.imageAlt":`Vista aérea de Euroindy — Kartódromo da Batalha, con la pista, el edificio y el bosque circundante`,"motors.circuit.location":`Batalha &middot; Portugal`,"motors.circuit.photosCta":`Obtén tus fotografías`,"motors.circuit.pending":`El destino estará disponible tras el lanzamiento de la plataforma Image Media Motors.`,"motors.circuit.rental":`Información oficial sobre alquiler de karts <span aria-hidden="true">↗</span>`,
+"motors.gallery.label":`Fotografías genéricas de karting y automovilismo del portafolio de Image Media`,"motors.gallery.alt1":`Piloto en un kart azul y naranja en pista`,"motors.gallery.alt2":`Dos pilotos de kart en pista`,"motors.gallery.alt3":`Piloto de kart visto de frente`,"motors.gallery.alt4":`Automóvil de competición en pista`,"motors.gallery.caption":`Selección del portafolio de Image Media &middot; Imágenes ilustrativas, no identificadas como Euroindy`,
+"motors.story.imageAlt":`Piloto de kart fotografiado en movimiento`,"motors.story.eyebrow":`La experiencia`,"motors.story.title":`De la pista al recuerdo`,"motors.story.body":`La propuesta visual de IM Motors sigue el ritmo de cada sesión: movimiento, detalle y emoción en imágenes con la identidad de Image Media.`,
+"motors.story.step1.title":`Elige el circuito`,"motors.story.step1.body":`Consulta la ubicación y la información oficial de la pista.`,"motors.story.step2.title":`Identifica la sesión`,"motors.story.step2.body":`La fecha y la hora serán la referencia para organizar cada experiencia fotográfica.`,"motors.story.step3.title":`Revive cada vuelta`,"motors.story.step3.body":`Una presentación visual preparada para futuras galerías, sin simular servicios que todavía no están disponibles.`,
+"motors.signoff.title":`Velocidad.<br><span class="accent-txt">Encuadrada.</span>`,"motors.signoff.body":`Un nuevo espacio visual de Image Media dedicado al karting y al automovilismo.`
 },
 fr:{
 "nav.portfolio":`Portfolio`,
@@ -566,7 +584,16 @@ fr:{
 "surf.how.eyebrow":`Rapide et privé`,"surf.how.title":`Votre meilleur moment, retrouvé grâce à votre visage`,
 "surf.how.desc":`Fini le défilement sans fin. Choisissez votre école, et la reconnaissance faciale vous emmène directement à vos propres sessions — rapide, sûr et privé.`,
 "surf.how.li1":`Choisissez votre école de surf dans la liste ci-dessus.`,"surf.how.li2":`Ouvrez votre galerie sur Fotop.`,"surf.how.li3":`Recherchez par visage pour trouver toutes les photos où vous apparaissez.`,"surf.how.li4":`Sélectionnez, achetez et partagez les vagues qui valent la peine d'être gardées.`,
-"surf.cta.title":`Vous dirigez une école de surf ?`,"surf.cta.desc":`Offrez à vos élèves des galeries photo rapides avec reconnaissance faciale — sans coût pour votre école. Parlons-en.`,"surf.cta.btn":`Devenez partenaire d'Image Media <span class="arw">&rarr;</span>`
+"surf.cta.title":`Vous dirigez une école de surf ?`,"surf.cta.desc":`Offrez à vos élèves des galeries photo rapides avec reconnaissance faciale — sans coût pour votre école. Parlons-en.`,"surf.cta.btn":`Devenez partenaire d'Image Media <span class="arw">&rarr;</span>`,
+"nav.motors":`Motors`,
+"motors.meta.title":`IM Motors — Photographie de karting | Image Media`,"motors.meta.description":`IM Motors présente l'expérience de photographie de karting d'Image Media. Découvrez Euroindy — Kartódromo da Batalha et consultez les informations officielles du circuit.`,
+"motors.hero.eyebrow":`Image Media &middot; Karting`,"motors.hero.title":`Votre tour.<br><span class="accent-txt">Notre regard.</span>`,"motors.hero.body":`Une photographie d'action conçue pour préserver la vitesse, la concentration et l'émotion vécues sur la piste.`,
+"motors.circuits.eyebrow":`Circuits`,"motors.circuits.title":`Choisissez la piste`,"motors.circuits.body":`Le premier circuit présenté dans l'univers IM Motors est Euroindy — Kartódromo da Batalha.`,
+"motors.circuit.imageAlt":`Vue aérienne d'Euroindy — Kartódromo da Batalha, montrant la piste, le bâtiment et la forêt environnante`,"motors.circuit.location":`Batalha &middot; Portugal`,"motors.circuit.photosCta":`Obtenez vos photos`,"motors.circuit.pending":`La destination sera disponible après le lancement de la plateforme Image Media Motors.`,"motors.circuit.rental":`Informations officielles sur la location de karts <span aria-hidden="true">↗</span>`,
+"motors.gallery.label":`Photographies génériques de karting et de sport automobile du portfolio Image Media`,"motors.gallery.alt1":`Pilote dans un kart bleu et orange sur la piste`,"motors.gallery.alt2":`Deux pilotes de kart sur la piste`,"motors.gallery.alt3":`Pilote de kart vu de face`,"motors.gallery.alt4":`Voiture de course sur la piste`,"motors.gallery.caption":`Sélection du portfolio Image Media &middot; Images d'illustration, non identifiées comme Euroindy`,
+"motors.story.imageAlt":`Pilote de kart photographié en mouvement`,"motors.story.eyebrow":`L'expérience`,"motors.story.title":`De la piste au souvenir`,"motors.story.body":`Le concept visuel IM Motors suit le rythme de chaque session : mouvement, détail et émotion dans des images portant l'identité Image Media.`,
+"motors.story.step1.title":`Choisissez le circuit`,"motors.story.step1.body":`Consultez l'emplacement et les informations officielles de la piste.`,"motors.story.step2.title":`Identifiez la session`,"motors.story.step2.body":`La date et l'heure serviront de référence pour organiser chaque expérience photographique.`,"motors.story.step3.title":`Revivez chaque tour`,"motors.story.step3.body":`Une présentation visuelle préparée pour de futures galeries, sans simuler des services qui ne sont pas encore disponibles.`,
+"motors.signoff.title":`Vitesse.<br><span class="accent-txt">Cadrée.</span>`,"motors.signoff.body":`Un nouvel espace visuel d'Image Media dédié au karting et au sport automobile.`
 },
 pt:{
 "nav.portfolio":`Portefólio`,
@@ -751,7 +778,16 @@ pt:{
 "surf.how.eyebrow":`Rápido e privado`,"surf.how.title":`O teu melhor momento, encontrado pelo rosto`,
 "surf.how.desc":`Sem scroll infinito. Escolhe a tua escola, e o reconhecimento facial leva-te diretamente às tuas próprias sessões — rápido, seguro e privado.`,
 "surf.how.li1":`Escolhe a tua escola de surf na lista acima.`,"surf.how.li2":`Abre a tua galeria na Fotop.`,"surf.how.li3":`Pesquisa por rosto para encontrar todas as fotos em que apareces.`,"surf.how.li4":`Seleciona, compra e partilha as ondas que valem a pena guardar.`,
-"surf.cta.title":`Diriges uma escola de surf?`,"surf.cta.desc":`Leva galerias de fotos rápidas com reconhecimento facial aos teus alunos — sem custo para a tua escola. Vamos falar.`,"surf.cta.btn":`Seja parceiro da Image Media <span class="arw">&rarr;</span>`
+"surf.cta.title":`Diriges uma escola de surf?`,"surf.cta.desc":`Leva galerias de fotos rápidas com reconhecimento facial aos teus alunos — sem custo para a tua escola. Vamos falar.`,"surf.cta.btn":`Seja parceiro da Image Media <span class="arw">&rarr;</span>`,
+"nav.motors":`Motors`,
+"motors.meta.title":`IM Motors — Fotografia de Karting | Image Media`,"motors.meta.description":`IM Motors apresenta a experiência de fotografia de karting da Image Media. Conheça o Euroindy — Kartódromo da Batalha e consulte a informação oficial do circuito.`,
+"motors.hero.eyebrow":`Image Media &middot; Karting`,"motors.hero.title":`A sua volta.<br><span class="accent-txt">O nosso olhar.</span>`,"motors.hero.body":`Fotografia de ação pensada para guardar a velocidade, a concentração e a emoção vivida em pista.`,
+"motors.circuits.eyebrow":`Circuitos`,"motors.circuits.title":`Escolha a pista`,"motors.circuits.body":`O primeiro circuito apresentado no universo IM Motors é o Euroindy — Kartódromo da Batalha.`,
+"motors.circuit.imageAlt":`Vista aérea do Euroindy — Kartódromo da Batalha, com a pista, o edifício e a floresta envolvente`,"motors.circuit.location":`Batalha &middot; Portugal`,"motors.circuit.photosCta":`Obtenha as suas fotografias`,"motors.circuit.pending":`Destino disponível após o lançamento da plataforma Image Media Motors.`,"motors.circuit.rental":`Informação oficial sobre aluguer de karts <span aria-hidden="true">↗</span>`,
+"motors.gallery.label":`Fotografias genéricas de karting e desporto motorizado do portefólio Image Media`,"motors.gallery.alt1":`Piloto num kart azul e laranja em pista`,"motors.gallery.alt2":`Dois pilotos de kart em pista`,"motors.gallery.alt3":`Piloto num kart visto de frente`,"motors.gallery.alt4":`Automóvel de competição em pista`,"motors.gallery.caption":`Seleção do portefólio Image Media &middot; Imagens ilustrativas, não identificadas como Euroindy`,
+"motors.story.imageAlt":`Piloto de kart fotografado em movimento`,"motors.story.eyebrow":`A experiência`,"motors.story.title":`Da pista para a memória`,"motors.story.body":`A proposta visual IM Motors acompanha o ritmo de cada sessão: movimento, detalhe e emoção em imagens com identidade Image Media.`,
+"motors.story.step1.title":`Escolha o circuito`,"motors.story.step1.body":`Consulte a localização e a informação oficial da pista.`,"motors.story.step2.title":`Identifique a sessão`,"motors.story.step2.body":`A data e a hora serão a referência para organizar cada experiência fotográfica.`,"motors.story.step3.title":`Reviva cada volta`,"motors.story.step3.body":`Uma apresentação visual preparada para futuras galerias, sem simular serviços ainda indisponíveis.`,
+"motors.signoff.title":`Velocidade.<br><span class="accent-txt">Enquadrada.</span>`,"motors.signoff.body":`Um novo espaço visual da Image Media dedicado ao karting e ao desporto motorizado.`
 },
 it:{
 "nav.portfolio":`Portfolio`,
@@ -936,7 +972,16 @@ it:{
 "surf.how.eyebrow":`Veloce e privato`,"surf.how.title":`Il tuo momento migliore, trovato tramite il tuo volto`,
 "surf.how.desc":`Basta scorrimento infinito. Scegli la tua scuola, e il riconoscimento facciale ti porta direttamente alle tue sessioni — veloce, sicuro e privato.`,
 "surf.how.li1":`Scegli la tua scuola di surf dall'elenco qui sopra.`,"surf.how.li2":`Apri la tua galleria su Fotop.`,"surf.how.li3":`Cerca per volto per trovare tutte le foto in cui appari.`,"surf.how.li4":`Seleziona, acquista e condividi le onde che vale la pena conservare.`,
-"surf.cta.title":`Gestisci una scuola di surf?`,"surf.cta.desc":`Offri ai tuoi allievi gallerie fotografiche veloci con riconoscimento facciale — a costo zero per la tua scuola. Parliamone.`,"surf.cta.btn":`Collabora con Image Media <span class="arw">&rarr;</span>`
+"surf.cta.title":`Gestisci una scuola di surf?`,"surf.cta.desc":`Offri ai tuoi allievi gallerie fotografiche veloci con riconoscimento facciale — a costo zero per la tua scuola. Parliamone.`,"surf.cta.btn":`Collabora con Image Media <span class="arw">&rarr;</span>`,
+"nav.motors":`Motors`,
+"motors.meta.title":`IM Motors — Fotografia di karting | Image Media`,"motors.meta.description":`IM Motors presenta l'esperienza di fotografia di karting di Image Media. Scopri Euroindy — Kartódromo da Batalha e consulta le informazioni ufficiali del circuito.`,
+"motors.hero.eyebrow":`Image Media &middot; Karting`,"motors.hero.title":`Il tuo giro.<br><span class="accent-txt">Il nostro sguardo.</span>`,"motors.hero.body":`Fotografia d'azione pensata per conservare la velocità, la concentrazione e l'emozione vissute in pista.`,
+"motors.circuits.eyebrow":`Circuiti`,"motors.circuits.title":`Scegli la pista`,"motors.circuits.body":`Il primo circuito presentato nell'universo IM Motors è Euroindy — Kartódromo da Batalha.`,
+"motors.circuit.imageAlt":`Vista aerea di Euroindy — Kartódromo da Batalha, con la pista, l'edificio e la foresta circostante`,"motors.circuit.location":`Batalha &middot; Portogallo`,"motors.circuit.photosCta":`Ottieni le tue fotografie`,"motors.circuit.pending":`La destinazione sarà disponibile dopo il lancio della piattaforma Image Media Motors.`,"motors.circuit.rental":`Informazioni ufficiali sul noleggio kart <span aria-hidden="true">↗</span>`,
+"motors.gallery.label":`Fotografie generiche di karting e motorsport del portfolio Image Media`,"motors.gallery.alt1":`Pilota su un kart blu e arancione in pista`,"motors.gallery.alt2":`Due piloti di kart in pista`,"motors.gallery.alt3":`Pilota di kart visto frontalmente`,"motors.gallery.alt4":`Auto da competizione in pista`,"motors.gallery.caption":`Selezione del portfolio Image Media &middot; Immagini illustrative, non identificate come Euroindy`,
+"motors.story.imageAlt":`Pilota di kart fotografato in movimento`,"motors.story.eyebrow":`L'esperienza`,"motors.story.title":`Dalla pista al ricordo`,"motors.story.body":`Il concept visivo IM Motors segue il ritmo di ogni sessione: movimento, dettaglio ed emozione in immagini con l'identità Image Media.`,
+"motors.story.step1.title":`Scegli il circuito`,"motors.story.step1.body":`Consulta la posizione e le informazioni ufficiali della pista.`,"motors.story.step2.title":`Identifica la sessione`,"motors.story.step2.body":`La data e l'ora saranno il riferimento per organizzare ogni esperienza fotografica.`,"motors.story.step3.title":`Rivivi ogni giro`,"motors.story.step3.body":`Una presentazione visiva predisposta per future gallerie, senza simulare servizi non ancora disponibili.`,
+"motors.signoff.title":`Velocità.<br><span class="accent-txt">Inquadrata.</span>`,"motors.signoff.body":`Un nuovo spazio visivo di Image Media dedicato al karting e al motorsport.`
 }
 };
 
@@ -997,6 +1042,14 @@ function applyStatic(){
   for(var j=0;j<ph.length;j++){
     var pel=ph[j],pkey=pel.getAttribute("data-i18n-placeholder");
     pel.setAttribute("placeholder",t(pkey));
+  }
+  var attrs=["alt","aria-label"];
+  for(var a=0;a<attrs.length;a++){
+    var attr=attrs[a],tag="data-i18n-"+attr;
+    var tagged=document.querySelectorAll("["+tag+"]");
+    for(var k=0;k<tagged.length;k++){
+      tagged[k].setAttribute(attr,t(tagged[k].getAttribute(tag)));
+    }
   }
 }
 applyStatic();

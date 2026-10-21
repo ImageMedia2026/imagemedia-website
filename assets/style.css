@@ -407,6 +407,16 @@ button{font-family:inherit;cursor:pointer;border:0;background:none;color:inherit
 .lb-nav:hover,.lb-close:hover{color:var(--accent-soft)}
 
 /* =================== RESPONSIVE =================== */
+/* The Motors entry adds one item to the shared navigation; collapse the
+   navigation before the full row can collide with the brand or controls. */
+@media(max-width:1240px){
+  .nav-links{position:fixed;inset:0 0 0 auto;width:min(82vw,360px);background:var(--bg-2);flex-direction:column;align-items:flex-start;justify-content:center;gap:24px;padding:60px 40px;transform:translateX(100%);transition:transform .4s cubic-bezier(.16,1,.3,1);border-left:1px solid var(--line)}
+  .nav.open .nav-links{transform:none}
+  .nav-links a{font-size:1.05rem}
+  .nav-links a.active::after{display:none}
+  .burger{display:flex}
+  .nav-cta .btn{display:none}
+}
 @media(max-width:1000px){
   .nav-links{position:fixed;inset:0 0 0 auto;width:min(82vw,360px);background:var(--bg-2);flex-direction:column;align-items:flex-start;justify-content:center;gap:24px;padding:60px 40px;transform:translateX(100%);transition:transform .4s cubic-bezier(.16,1,.3,1);border-left:1px solid var(--line)}
   .nav.open .nav-links{transform:none}

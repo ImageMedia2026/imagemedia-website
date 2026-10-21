@@ -1,0 +1,134 @@
+/* IM Motors local design preview. All selectors are scoped to motors.html. */
+.motors-document{scroll-behavior:auto}
+body[data-page="motors"]{--motors-red:#e6470d}
+.motors-capture-circuit .nav,.motors-capture-circuit-close .nav,.motors-capture-gallery .nav,.motors-capture-story .nav{position:relative;background:#0c0c0e;border-bottom:1px solid var(--line)}
+.motors-capture-circuit .motors-hero,.motors-capture-circuit-close .motors-hero,.motors-capture-gallery .motors-hero,.motors-capture-story .motors-hero{display:none}
+.motors-capture-circuit #circuitos{padding:64px 0 80px}
+.motors-capture-circuit #circuitos .section-head{margin-bottom:28px}
+.motors-capture-circuit-close #circuitos{padding:48px 0}
+.motors-capture-circuit-close #circuitos .section-head,.motors-capture-circuit-close .circuit-copy{display:none}
+.motors-capture-circuit-close .circuit-card{display:block;max-width:1100px;margin:0 auto}
+.motors-capture-circuit-close .circuit-photo{aspect-ratio:1024/711}
+.motors-capture-gallery #circuitos,.motors-capture-gallery .motors-story,.motors-capture-gallery .motors-signoff,.motors-capture-gallery .footer{display:none}
+.motors-capture-gallery .motors-strip{margin-top:48px}
+.motors-capture-story #circuitos,.motors-capture-story .motors-strip,.motors-capture-story .strip-caption{display:none}
+.motors-capture-story .motors-story{padding:64px 0 80px}
+body[data-page="motors"] .nav .brand-logo{display:block;width:220px;height:auto}
+body[data-page="motors"] .footer .brand-logo{display:block;width:210px;height:auto}
+.motors-hero{min-height:max(88vh,780px)}
+.motors-hero .eyebrow,.motors-hero h1,.motors-hero p,.motors-hero .phero-actions{animation:none;opacity:1;transform:none}
+.motors-hero .phero-bg{background-position:center 58%;filter:saturate(.78) contrast(1.08)}
+.motors-hero::after{background:linear-gradient(90deg,rgba(12,12,14,.9),rgba(12,12,14,.36) 67%),linear-gradient(180deg,rgba(12,12,14,.42),transparent 40%,var(--bg))}
+.motors-mark{width:112px;height:auto;object-fit:contain;margin-bottom:26px;border:1px solid rgba(255,255,255,.18);box-shadow:0 12px 32px rgba(0,0,0,.25)}
+.motors-hero h1{font-size:clamp(3.4rem,9vw,7.8rem);max-width:900px}
+.motors-hero p{max-width:620px}
+.circuit-card{display:grid;grid-template-columns:minmax(0,1.2fr) minmax(320px,.8fr);border:1px solid var(--line);background:var(--bg-2);overflow:hidden}
+.circuit-photo{position:relative;min-height:0;overflow:hidden;background:transparent}
+.circuit-photo img{display:block;width:100%;height:100%;object-fit:cover;object-position:44% center;transition:transform .9s cubic-bezier(.16,1,.3,1)}
+.circuit-image-hold{aspect-ratio:1024/711;display:grid;place-items:center;padding:32px;text-align:center;background:radial-gradient(circle at 50% 40%,#303035,#18181b 66%);border:1px solid var(--line);color:var(--faint);font-size:.75rem;font-weight:700;letter-spacing:.16em;text-transform:uppercase}
+.circuit-image-hold strong{display:block;margin-top:8px;font-family:'Anton',sans-serif;font-size:clamp(2rem,5vw,4rem);font-weight:400;letter-spacing:.03em;color:var(--ink)}
+.circuit-card:hover .circuit-photo img{transform:scale(1.035)}
+.circuit-copy{padding:clamp(32px,5vw,64px);display:flex;flex-direction:column;justify-content:center}
+.circuit-kicker{font-size:.72rem;font-weight:700;letter-spacing:.2em;text-transform:uppercase;color:var(--accent-soft);margin-bottom:16px}
+.circuit-copy h3{font-size:clamp(3rem,6vw,5.4rem)}
+.circuit-subtitle{font-size:1.2rem;font-weight:700;margin:10px 0 24px}
+.circuit-address{color:var(--muted);margin-bottom:30px}
+.circuit-actions{display:flex;flex-direction:column;align-items:flex-start;gap:18px}
+.motors-pending-cta{cursor:not-allowed;opacity:.58;box-shadow:none}
+.motors-pending-cta:disabled{background:var(--accent);color:#fff}
+.motors-pending-note{max-width:330px;margin-top:-8px;color:var(--muted);font-size:.78rem;line-height:1.5}
+.text-link{font-size:.82rem;font-weight:700;letter-spacing:.04em;text-transform:uppercase;border-bottom:1px solid var(--line);padding-bottom:5px;transition:.2s}
+.text-link:hover{color:var(--accent-soft);border-color:var(--accent)}
+.motors-strip{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));align-items:stretch;gap:12px;padding:18px;background:var(--bg);border-block:1px solid var(--line)}
+.motors-strip img{display:block;width:100%;height:100%;aspect-ratio:3/2;object-fit:cover;object-position:center;background:transparent;filter:saturate(.72) brightness(.82);transition:.45s}
+.motors-strip img:nth-child(1){object-position:50% 54%}
+.motors-strip img:nth-child(2){object-position:46% 50%}
+.motors-strip img:nth-child(3){object-position:50% 52%}
+.motors-strip img:nth-child(4){object-position:50% 54%}
+.motors-strip img:hover{filter:none;transform:translateY(-4px)}
+.strip-caption{padding:0 28px 18px;text-align:right;color:var(--faint);font-size:.68rem;letter-spacing:.08em;text-transform:uppercase}
+.motors-story{background:var(--bg-2)}
+.motors-story .feature>*{min-width:0}
+.motors-story .feature-media{aspect-ratio:1000/428;background:transparent}
+.motors-story .feature-media img{display:block;width:100%;height:100%;min-height:0;object-fit:cover;object-position:left center}
+.motors-story .feature h3{font-size:clamp(2.5rem,5vw,4.6rem);margin-bottom:20px}
+.motors-story .feature>div>p{color:var(--muted);max-width:560px}
+.motors-steps{list-style:none;margin-top:34px;display:grid;gap:22px}
+.motors-steps li{display:grid;grid-template-columns:46px 1fr;gap:16px;padding-top:20px;border-top:1px solid var(--line)}
+.motors-steps li>span{font-family:'Anton',sans-serif;color:var(--accent);font-size:1.25rem;letter-spacing:.08em}
+.motors-steps strong{display:block;font-size:1rem;margin-bottom:3px}
+.motors-steps p{color:var(--muted);font-size:.9rem}
+.motors-signoff{position:relative;min-height:520px;display:flex;align-items:center;overflow:hidden;padding:100px 0}
+.motors-signoff-bg{position:absolute;inset:0;background-size:cover;background-position:center 40%;filter:saturate(.65)}
+.motors-signoff::after{content:"";position:absolute;inset:0;background:linear-gradient(90deg,rgba(12,12,14,.94),rgba(12,12,14,.47)),linear-gradient(0deg,var(--bg),transparent 45%)}
+.motors-signoff .container{position:relative;z-index:1;width:100%}
+.motors-signoff h2{font-size:clamp(3rem,7vw,6rem);margin-bottom:20px}
+.motors-signoff p{max-width:520px;color:#d8d6d1}
+.motors-mark-large{width:132px}
+@media(max-width:900px){
+  .circuit-card{grid-template-columns:1fr}
+  .circuit-photo{min-height:0;aspect-ratio:1024/711}
+  .motors-strip{grid-template-columns:repeat(2,minmax(0,1fr));width:auto;max-width:none;margin-inline:18px;padding:0;gap:12px}
+  .motors-strip img{min-width:0;max-width:100%}
+  .strip-caption{width:auto;max-width:none;margin-inline:18px;padding:10px 0 18px;white-space:normal;overflow-wrap:normal;word-break:normal;line-height:1.6}
+}
+@media(max-width:620px){
+  .motors-hero{min-height:max(82svh,700px)}
+  .motors-hero .phero-bg{background-image:url('images/portfolio/kart/kart-06.jpg') !important;background-size:cover;background-repeat:no-repeat;background-position:center 42%;background-color:#0c0c0e}
+  .motors-hero .phero-inner{padding-bottom:42px}
+  .motors-mark{width:86px;margin-bottom:18px}
+  body[data-page="motors"] .nav .brand-logo{width:158px}
+  .motors-hero h1{font-size:clamp(2.7rem,13.5vw,3.4rem);max-width:100%;overflow-wrap:normal}
+  .motors-hero p{max-width:32ch}
+  .motors-capture-circuit #circuitos .section-head p{max-width:31ch}
+  .circuit-photo{min-height:0}
+  .circuit-copy{padding:30px 22px 36px}
+  .circuit-copy h3{font-size:3.2rem}
+  .circuit-actions .btn{width:100%;justify-content:center;text-align:center}
+  .motors-strip{grid-template-columns:repeat(2,minmax(0,1fr));gap:8px;margin-inline:14px;padding:0}
+  .strip-caption{margin-inline:14px;padding:10px 0 14px;text-align:left}
+  .motors-story .feature-media{aspect-ratio:1000/428}
+  .motors-story .feature-media img{min-height:0}
+  .motors-story .feature h3{font-size:clamp(2.35rem,12vw,3.15rem);overflow-wrap:break-word}
+  .motors-signoff-bg{background-image:url('images/portfolio/kart/kart-06.jpg') !important;background-size:cover;background-repeat:no-repeat;background-position:center 42%;background-color:#0c0c0e}
+  .motors-signoff{min-height:440px;padding:72px 0}
+}
+@media(prefers-reduced-motion:reduce){
+  .circuit-photo img,.motors-strip img{transition:none}
+}
+
+/* Final mobile containment rules: keep the gallery and caption inside the 390px viewport. */
+@media(max-width:620px){
+  body[data-page="motors"] .motors-strip{
+    box-sizing:border-box;
+    width:100%;
+    max-width:100%;
+    margin:0;
+    padding-inline:14px;
+    grid-template-columns:repeat(2,minmax(0,1fr));
+    gap:8px;
+    overflow:hidden;
+  }
+  body[data-page="motors"] .motors-strip img{
+    box-sizing:border-box;
+    width:100%;
+    min-width:0;
+    max-width:100%;
+  }
+  body[data-page="motors"] .strip-caption{
+    box-sizing:border-box;
+    width:100%;
+    max-width:100%;
+    margin:0;
+    padding:10px 14px 14px;
+    overflow:visible;
+    white-space:normal;
+    overflow-wrap:normal;
+    word-break:normal;
+    hyphens:none;
+    font-size:.62rem;
+    letter-spacing:.04em;
+    line-height:1.55;
+    text-align:left;
+  }
+}
